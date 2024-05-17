@@ -1,9 +1,13 @@
 /* 日间模式不生效 */
 [data-theme="light"] #site-name,
-[data-theme="light"] #site-title,
-[data-theme="light"] #site-subtitle,
+[data-theme="light"] #site-title{
+  animation: light_15px 10s linear infinite;
+}
+[data-theme="light"] #site-subtitle {
+  animation: light_10px 10s linear infinite;
+}
 [data-theme="light"] #post-info {
-  animation: none;
+  animation: light_5px 10s linear infinite;
 }
 /* 夜间模式生效 */
 [data-theme="dark"] #site-name,

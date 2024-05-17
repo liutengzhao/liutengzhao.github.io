@@ -3,7 +3,7 @@
 #nav .menus_items {
     position: absolute !important;
     width: fit-content !important;
-    left: 50% !important;
+    left: 30% !important;
     transform: translateX(-50%) !important;
   }
   
@@ -12,9 +12,10 @@
     display: flex !important;
   } */
   /* 这里的2是代表导航栏的第2个元素，即有子菜单的元素，可以按自己需求修改 */
-  /* .menus_items .menus_item:nth-child(2) .menus_item_child {
-    left: -125px;
+  /* .menus_items .menus_item:nth-child(4) .menus_item_child {
+    left: -220px;
   } */
+ 
 
 
   /* 此处的css实现了两个作用：菜单栏居中、子菜单横向显示。其中子菜单横向显示要根据自己的实际情况来改，例如你的以及菜单的第2个选项中有子菜单，那就要加一项调节第2个选项中的子菜单，这个具体调节多少要根据你的具体情况为准，可以自己慢慢调到中间。 */
