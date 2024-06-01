@@ -29,4 +29,47 @@
 }
 
 
-  
+/* 除了首页文章页的其他页面，背景颜色 */
+.page:not(.page.home) {
+  background-color: #1e4056; 
+  max-width: 1600px;
+  --card-bg: rgb(255, 255, 255, 0.0);
+
+/* 渐变动画效果 */
+  background: linear-gradient(
+      -45deg,
+      /* #cdb9e8,
+      #eccec5,
+      #a3e9eb,
+      #bdbdf0,
+      #eec1ea */
+	  #a176d9,
+      #d87fe3,
+      #d7888c,
+      #bde5f0,
+      #b3d99a,
+      #1e4056
+    );
+  position: relative;
+  background-size: 400% 400%;
+  animation: Gradient 10s ease infinite !important;
+}
+
+@keyframes Gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* 除了首页文章页的其他页面，宽度 */
+.page:not(.page.home) .layout {
+  max-width: 1600px;
+}
+
+
