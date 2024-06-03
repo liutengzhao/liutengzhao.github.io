@@ -32,7 +32,7 @@
 /* 除了首页文章页的其他页面，背景颜色 */
 .page:not(.page.home) {
   background-color: #1e4056; 
-  max-width: 1600px;
+  max-width: 100%;
   --card-bg: rgb(255, 255, 255, 0.0);
 
 /* 渐变动画效果 */
@@ -69,7 +69,7 @@
 
 /* 除了首页文章页的其他页面，宽度 */
 .page:not(.page.home) .layout {
-  max-width: 1600px;
+  max-width: 100%;
 }
 
 
