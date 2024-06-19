@@ -63,3 +63,4 @@ $cards
       $card.addClass("animated");
     },2500);
   });
+

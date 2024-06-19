@@ -653,14 +653,60 @@ html, body {
 
 body {
   color: white;
-  background-color: #333844;
+  background-color: #232424;
   font-family: "Heebo", sans-serif;
   text-align: center;
+  padding: 0;
+  margin: 0;
+ 
+
+}
+#zong {
+  color: white;
+  background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+  font-family: "Heebo", sans-serif;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+
+
+  background-color: #1e4056; 
+  max-width: 100%;
+  --card-bg: rgb(255, 255, 255, 0.0);
+/* 渐变动画效果 */
+  background: linear-gradient(
+      -45deg,
+      /* #cdb9e8,
+      #eccec5,
+      #a3e9eb,
+      #bdbdf0,
+      #eec1ea */
+	  #a176d9,
+      #d87fe3,
+      #d7888c,
+      #bde5f0,
+      #b3d99a,
+      #1e4056
+    );
+  position: relative;
+  background-size: 400% 400%;
+  animation: Gradient 10s ease infinite !important;
+}
+@keyframes Gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 h1 {
   display: block;
-  margin: 30px 0;
+  margin:  0;
 }
 
 p {
@@ -781,3 +827,4 @@ html, body, main {
     transform: scale3d(1, 1, 1);
   }
 }
+
