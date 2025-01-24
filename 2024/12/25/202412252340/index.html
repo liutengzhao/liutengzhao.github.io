@@ -1,0 +1,500 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><script>((function() {var callbacks = [],timeLimit = 50,open = false;setInterval(loop, 1);return {addListener: function(fn) {callbacks.push(fn);},cancleListenr: function(fn) {callbacks = callbacks.filter(function(v) {return v !== fn;});}}
+function loop() {var startTime = new Date();debugger;if (new Date() - startTime > timeLimit) {if (!open) {callbacks.forEach(function(fn) {fn.call(null);});}open = true;window.stop();alert('你真坏，请关闭控制台！');document.body.innerHTML = "";} else {open = false;}}})()).addListener(function() {window.location.reload();});</script><script>function toDevtools(){
+  let num = 0; 
+  let devtools = new Date();
+  devtools.toString = function() {
+    num++;
+    if (num > 1) {
+        alert('你真坏，请关闭控制台！')
+        window.location.href = "about:blank"
+        blast();
+    }
+  }
+  console.log('', devtools);
+}
+toDevtools();</script><head><!-- hexo injector head_begin start --><style type="text/css">.douban-card-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-height: 400px;
+}
+
+.douban-card {
+    display: flex;
+    margin: 30px 10px;
+    padding: 15px;
+    border-radius: 15px;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    color: antiquewhite;
+    text-decoration: none;
+}
+
+.douban-card:hover {
+    text-decoration: none;
+}
+
+.douban-card-bgimg {
+    position: absolute;
+    width: 115%;
+    height: 115%;
+    filter: blur(15px) brightness(0.6);
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.douban-card-img {
+    position: relative;
+    height: 130px;
+    width: 80px;
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.douban-card-left:hover .douban-card-img {
+    filter: blur(5px) brightness(0.6);
+    transform: perspective(800px) rotateX(180deg);
+}
+
+.douban-card-left .douban-card-img {
+    transition: all 500ms ease;
+}
+
+.douban-card-left {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.douban-card-left .douban-card-status {
+    height: 130px;
+    width: 80px;
+    text-align: center;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 30%;
+    transform: rotateX(180deg);
+    backface-visibility: hidden;
+    transition: all 500ms ease;
+}
+
+.douban-card-left:hover .douban-card-status {
+    transform: perspective(800px) rotateX(0deg);
+}
+
+.douban-card-right {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-left: 12px;
+    font-size: 16px;
+    font-family: "Courier New", Courier, monospace;
+    line-height: 1.3;
+    color: antiquewhite;
+}
+
+.douban-card-item {
+    margin-top: 4px;
+}
+</style><!-- hexo injector head_begin end --><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>第一次装机全套流程圆满结束纪念 | Teng's 小窝</title><meta name="author" content="Teng,2131719263@qq.com"><meta name="copyright" content="Teng"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="前言前不久装了一台自己的台式机，忙完后记录一下这次重要经历，凭着记忆简单复盘一下。首先，这个想法并不是脑袋一热凭空出现，而是早早就谋划了几年，这个想法诞生的时间或者契机或者让我坚定这个目标的具体原因已经记不清了，但我相信是长时间多方面原因综合起来不断形成的。下面这几个原因应该是几大方面。  线下匆忙间买完笔记本很长一段时间后的才发现上的大当 经常高负荷运行下笔记本经常卡顿死机 随着阅历和电子产品更">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第一次装机全套流程圆满结束纪念">
+<meta property="og:url" content="http://example.com/2024/12/25/202412252340/index.html">
+<meta property="og:site_name" content="Teng&#39;s 小窝">
+<meta property="og:description" content="前言前不久装了一台自己的台式机，忙完后记录一下这次重要经历，凭着记忆简单复盘一下。首先，这个想法并不是脑袋一热凭空出现，而是早早就谋划了几年，这个想法诞生的时间或者契机或者让我坚定这个目标的具体原因已经记不清了，但我相信是长时间多方面原因综合起来不断形成的。下面这几个原因应该是几大方面。  线下匆忙间买完笔记本很长一段时间后的才发现上的大当 经常高负荷运行下笔记本经常卡顿死机 随着阅历和电子产品更">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/202405172136687.jpeg">
+<meta property="article:published_time" content="2024-12-25T15:34:12.000Z">
+<meta property="article:modified_time" content="2024-12-25T15:40:47.000Z">
+<meta property="article:author" content="Teng">
+<meta property="article:tag" content="电脑、win系统">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/202405172136687.jpeg"><link rel="shortcut icon" href="/img/%E6%9E%AB%E5%8F%B6.png"><link rel="canonical" href="http://example.com/2024/12/25/202412252340/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: '',
+  enable_page_level_ads: 'true'
+});</script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?8bbb9c71763bff98a22fb372b68cf4bc";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":true,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":false,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: {"chs_to_cht":"你已切换为繁体中文","cht_to_chs":"你已切换为简体中文","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '第一次装机全套流程圆满结束纪念',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-12-25 23:40:47'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 8 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/kuanping.css"><link rel="stylesheet" href="/css/kuanpingfenlan.css?1"><link rel="stylesheet" href="/css/bolang.css?1"><link rel="stylesheet" href="/css/gerenkapianjianbianse.css?1"><link rel="stylesheet" href="/css/heiyemihongdeng.css?1"><link rel="stylesheet" href="/css/dingbujiazaitiao.css?1"><link rel="stylesheet" href="/css/mouse.css?1"><link rel="stylesheet" href="/css/cat.css"><link rel="stylesheet" href="/css/zidingyi.css?1"><link rel="stylesheet" href="/css/touxiangzhuangtai.css"><span id="fps"></span><link rel="stylesheet" href="/css/toumingbeijing.css?1"><link rel="stylesheet" href="/css/caidanjvzhong.css?1"><link rel="stylesheet" href="/css/dianjifangda.css?1"><link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"><div id="myscoll"></div><!-- hexo injector head_end start --><link rel="stylesheet" href="https://www.jsdelivr.ren/npm/hexo-butterfly-games/lib/games.css"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-clock/lib/clock.min.css" /><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-categories-card@1.0.0/lib/categorybar.css"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (true) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/qiyana.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fas fa-pen"></i><span> 博客</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-calendar"></i><span> 日志</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/talk/"><i class="fa-fw fas fa-comment"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/photo/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-circle-play"></i><span> 电影</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> 读书</span></a></li></ul></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fa-solid fa-fire"></i><span> 娱乐</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/bilibili/"><i class="fa-fw fas fa-video"></i><span> B站</span></a></li><li><a class="site-page child" href="/games/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/collect/"><i class="fa-fw fa-solid fa-splotch"></i><span> 收藏</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url('/img/202405172136687.jpeg')"><nav id="nav"><span id="blog-info"><a href="/" title="Teng's 小窝"><span class="site-name">Teng's 小窝</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fas fa-pen"></i><span> 博客</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-calendar"></i><span> 日志</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/talk/"><i class="fa-fw fas fa-comment"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/photo/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-circle-play"></i><span> 电影</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> 读书</span></a></li></ul></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fa-solid fa-fire"></i><span> 娱乐</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/bilibili/"><i class="fa-fw fas fa-video"></i><span> B站</span></a></li><li><a class="site-page child" href="/games/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/collect/"><i class="fa-fw fa-solid fa-splotch"></i><span> 收藏</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">第一次装机全套流程圆满结束纪念</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-12-25T15:34:12.000Z" title="发表于 2024-12-25 23:34:12">2024-12-25</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-12-25T15:40:47.000Z" title="更新于 2024-12-25 23:40:47">2024-12-25</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%A3%85%E6%9C%BA/">装机</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">4.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>13分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="第一次装机全套流程圆满结束纪念"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>前不久装了一台自己的台式机，忙完后记录一下这次重要经历，凭着记忆简单复盘一下。<br><br>首先，这个想法并不是脑袋一热凭空出现，而是早早就谋划了几年，这个想法诞生的时间或者契机或者让我坚定这个目标的具体原因已经记不清了，但我相信是长时间多方面原因综合起来不断形成的。<br>下面这几个原因应该是几大方面。</p>
+<ol>
+<li>线下匆忙间买完笔记本很长一段时间后的才发现上的大当</li>
+<li>经常高负荷运行下笔记本经常卡顿死机</li>
+<li>随着阅历和电子产品更新换代发觉现用笔记本性能规格太差，即使是在当年环境下同价位下也是很差、性价比相当低的选择(说人话就是当年被js坑了)</li>
+<li>台式机相比于笔记本廉价、性能强、diy等各方面优势</li>
+<li>台式机笔记本两者互不可替代的定位</li>
+<li>台式机相比于六年级童年记忆时期翻天覆地的外观变化与性能规格的巨大进步很吸引人想尝试一下</li>
+<li>天生对电脑及其硬件很感兴趣，愿意折腾</li>
+</ol>
+<h1 id="选购"><a href="#选购" class="headerlink" title="选购"></a>选购</h1><p>&emsp;&emsp;一开始，我是一直在整机里面纠结的，但总是有不太满意或者想优化升级的配件，自己按整机配置选零件加起来又远比整机价格高。过了一段时间，用了一些大券加起来试了一下发现自己diy是会比整机便宜的，相同价格能做到配置更高。又想锻炼一下就放弃整机转diy了。<br>&emsp;&emsp;从最早下单第一个配件到现在应该已经过去一个多月时间，配件是每隔几天陆续买的。<br>&emsp;&emsp;虽然是第一次配台式机，但我并不是小白。实行计划之前几年就经常看详解与科普，站巨人肩膀、吸百家之长，逐渐有了自己的理解。<br>&emsp;&emsp;装机预算不多，3k-4k，性价比路线。明确自己的需求，完全够用，然后第一次装失误了可能会少亏点（bushi）。<br>&emsp;&emsp;选购顺序没什么好说的，我个人主观意愿上是按便宜的、体型小的先买，贵的体型大的后买（积蓄不多所以慎重考虑，选购中途想退出内存硬盘小玩意儿可以先留着日后不差钱或者想法复苏再拿出来用，实在不行硬盘盒装起来给笔记本用，但是大玩意儿买了就是基本一定要装到底了，除非不嫌麻烦再退货）。平台都是pdd。<br>&emsp;&emsp;首先吐槽一下，很多品牌的店铺很少，不说官方店铺，百分百授权的都见不到，至少我是翻了一圈很难见到，所以直接pass了。</p>
+<h3 id="1-内存硬盘"><a href="#1-内存硬盘" class="headerlink" title="1. 内存硬盘"></a>1. 内存硬盘</h3><p>没什么好说的，想同时运行多少东西存多少东西就看这俩，很难坏，看自己需求。价格适中体型小，最先买。还有就是我笔记本8+512的配置，最想好好搞一下的就是内存容量，拉到32G才够用，硬盘容量的话因为之前有了一块1T的SATA固态，所以暂时给到1T。</p>
+<ul>
+<li>&emsp;&emsp;内存：金百达D4 3200 16*2。店铺很多，价格低。</li>
+<li>&emsp;&emsp;硬盘：金士顿1T。店铺很多，价格低。也可以加几十块钱上铠侠RC20，pcle3.0和4.0差别不大。</li>
+</ul>
+<hr>
+<h3 id="2-电源散热"><a href="#2-电源散热" class="headerlink" title="2. 电源散热"></a>2. 电源散热</h3><p>这俩吧说重要其实不是核心，说不重要吧关系到整个机器的寿命。价格中下体型中，第二买。</p>
+<ul>
+<li>&emsp;&emsp;电源：鑫谷750w。也考虑过玄武，用料和价格都很能打，口碑也很好，但是考虑到是新起之秀，最后还是选了鑫谷，以后再升级的话会毫不犹豫选玄武850K。实际上电源是最难选的，B站看了一圈视频下来，没一个是值得信赖的，最后个人主观总结：纯看运气，听天由命，运气好了低端用到退休，运气差了高端用了就炸。容量其实550-850w的价格都差别不大差几十块钱，但是提升是实打实的，可以留点升级空间，多接设备高负载工作都放心点。</li>
+<li>&emsp;&emsp;散热：利民双塔风冷。海景房水冷确实比风冷好看很多，有一句话说的有点道理，你纠结水冷安不安全值不值得了说明你已经不适合水冷了，仔细想来我个人确实非常不适合用水冷。我需求的性能买个正经牌子的风冷其实也完全够用的。</li>
+</ul>
+<hr>
+<h3 id="3-机箱风扇"><a href="#3-机箱风扇" class="headerlink" title="3. 机箱风扇"></a>3. 机箱风扇</h3><p>这俩吧就是刀把了，甚至都可以不用，放鞋盒大风扇吹。价格低体型大，第三买</p>
+<ul>
+<li>&emsp;&emsp;机箱：刀把不解释，哪个便宜选哪个</li>
+<li>&emsp;&emsp;风扇：刀把不解释，哪个便宜选哪个</li>
+</ul>
+<hr>
+<h3 id="4-主板CPU显卡显示器"><a href="#4-主板CPU显卡显示器" class="headerlink" title="4. 主板CPU显卡显示器"></a>4. 主板CPU显卡显示器</h3><p>三大件+必备，最重要的四个，性能表现就看这四个了，价格极高体型中，毫无疑问最后买。</p>
+<ul>
+<li>&emsp;&emsp;板U：华硕重炮手B660M-wifi版+12400f。主板想选用料好调教好的老品牌大厂，御三家先不考虑技嘉微星，那就选华硕。其实大师系列h610最入门的型号也完全够用，但是基本就那样了，稍微想多升级点不可能了。重炮手的用料和规格提升我觉得多花点钱还是挺值的，不像固态金士顿1T到铠侠RC20或者B660M加小几百上B760M天选或者小吹雪这种确实多花了钱但是很难感受到差别，对于这种很难感受差别多花钱买安心或者买颜值的我挺慎重的，反而如果稍微多花点钱能带来可观的肉眼可见的提升，我是挺愿意的。CPU甜品卡不解释，个人需求完全够用，以后升级的话会上12600k。</li>
+<li>&emsp;&emsp;显卡：2060s。说实话，现在这网络上显卡焦虑真挺严重的，还是明确需求和自己钱包至上，我那1k、60hz的核显笔记本都用到现在用了四年了，游戏大作也全成就了好几个，稍微上个独显都是巨大提升，况且我个人对画面和帧率是真的非常不敏感，2060s低廉的价格+媲美3060的性能（steam占有率第一的显卡），其实完全够我用了。</li>
+<li>&emsp;&emsp;显示器：KTC H27T22C。首先很早之前就需求价格等方面综合考量确定27寸165/180HZ的规格，一开始真的一直在几个四百块钱的杂牌显示器之间考虑，最后还是咬咬牙加点钱上了性价比大爆款，显示器是最后买的，但是第一个用上的，真的超级惊艳，真物有所值真买对了，各方面都很喜欢，唯一挑的出来的毛病就是说明书是一点不教怎么调设置啊，只有一个电源开关按键，摸索了半天才知道电源按键就是调设置的摇杆，一键多用，又摸索了半天才会用这遥杆，不过综合来说我是超级满意（不过那些400块钱27寸165hz屏幕也是真的便宜，追求性价比搞副屏的话真可以考虑冲）</li>
+</ul>
+<hr>
+<h3 id="5-显卡支架、集线器"><a href="#5-显卡支架、集线器" class="headerlink" title="5. 显卡支架、集线器"></a>5. 显卡支架、集线器</h3><p>这俩就是锦上添花了，比机箱风扇更无关紧要的配件，支架可以一次性筷子顶上，线缆可以串联。但就我个人使用体验和综合考量而言，还是很有用的。价格零头体积小，非必备看个人</p>
+<ul>
+<li>&emsp;&emsp;显卡支架：用了俩，带灯板的和螺纹伸缩的。一开始买了个带ONEPIECE灯板的，不是别的原因，就是因为这个灯板，超大的神光同步灯板还是最喜欢的作品，价格也很低，很难不冲，结果买来后翻车了，机箱太小安不上，不过当个装饰个人觉得也超值了，再蚊子腿零钱买个螺纹伸缩的顶上。</li>
+<li>&emsp;&emsp;集线器：用了个遥控灯光的。现在集线器进化的真的很强很值，之前看的老的装机视频里的集线器都是光壳板子裸漏，功能也很差，现在的话封闭式盒子接口多功能多还有遥控灯光，光就这个遥控灯光我用下来比华硕基本的神光同步软件都好用方便，真物有所值。</li>
+</ul>
+<p>全部到货<br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="http://img.blog.1207.top/img/202501122205295.jpg" height=300px><br>拆完之后<br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="http://img.blog.1207.top/img/202501122206991.jpg" height=300px></p>
+<h1 id="装机"><a href="#装机" class="headerlink" title="装机"></a>装机</h1><p>&emsp;&emsp;全程看硬件茶谈装的，但是说实话，他那个视频是有局限性的，只是教了宏观总体的方法，具体得根据你的机箱和主板来，真的很多细节不如再专门搜一下你这个主板的装机视频，因为那跟你的实际情况是一样的，两者综合着看效果最佳。就我这次我主板的很多细节看硬件茶谈是一头雾水的，但是专门搜一下这块主板的装机视频瞬间豁然开朗。但不管怎么说，那个装机教程还是TOP1。<br>&emsp;&emsp;带不带防静电手套看个人，洗手光脚摸铁摸墙都行，我还是带了。但是选的话真得选那种光滑的类橡胶手套那种，我用的类毛线的手套，那纤维多的，直接开局挂到了我的cpu针脚，真挺危险。<br>&emsp;&emsp;值得一说的还有手感和经验，很多手感反馈和场景你不亲身经历一次是很难感受到的，光看视频里的描述和拟声词形容很难感受到到底是怎么个情况。还有一些经验，你可能和我一样装之前N刷教程，有些步骤觉得很简单，就跟插个手机充电器一样，甚至看过之后下次看想直接跳过这一步，其实具体第一次做起来真有点难度有点注意事项的（装机N次家常便饭的大佬当我没说，我复述一下我小白第一次装机的感受）。纸上得来终觉浅，绝知此事要躬行，亲身经历一下挺有乐趣和意义的。<br>&emsp;&emsp;装机顺序我个人看了好几个视频再结合自身情况综合考量确定了一下，事后证明大部分顺序是正确的，但是还有一些要优化的细节。</p>
+<h3 id="CPU"><a href="#CPU" class="headerlink" title="CPU"></a>CPU</h3><p>看视频</p>
+<h3 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h3><p>看视频，唯一值得说的就是我这块华硕主板，内存按到底卡扣是不会自动闭合的，需要自己手动扣上，问了几位相同主板的小伙伴，很多人也是这情况，应该是正常的。</p>
+<h3 id="固态"><a href="#固态" class="headerlink" title="固态"></a>固态</h3><p>看视频，看自己主板相关视频。值得注意的来了，第一次装机，看硬件茶谈到这一步真整蒙了，没亲身经历过真的很难整明白怎么回事，就是倾斜角度是怎么定义的、螺丝螺纹螺柱到底要不要加、安装顺序又怎样等等等等，我印象深刻的还有一点，他那个螺纹螺柱分类情况讲的太晚太靠后了，跟着走稍微不注意就把固态和散热片给贴上了螺丝都拧一半了，后面有个提示，当场心态有点不稳了，手忙脚乱开始回退，看了自己主板的装机视频就瞬间头脑清晰了。这一步还是专门找自己主板的装机视频看吧</p>
+<h3 id="IO挡板和显卡pcle挡板"><a href="#IO挡板和显卡pcle挡板" class="headerlink" title="IO挡板和显卡pcle挡板"></a>IO挡板和显卡pcle挡板</h3><p>这个也是看自己主板相关视频，我这个是出厂自带的，不用管。pcle挡板一定要在主板固定到机箱里之前就拆下来，可以先主板进去比一下位置看看显卡占用哪个就把哪个拆下来，但我比了一下拆完后，在机箱里固定完主板了一看拆错了，，只能小心翼翼的再拆，生怕刮到主板电容。这一步我的经验总结是，比什么比，全拆了完事，还增加通风口（doge）</p>
+<h3 id="电源线"><a href="#电源线" class="headerlink" title="电源线"></a>电源线</h3><p>选择性看机箱相关视频。我这个机箱买小了，装电源和理线巨难受，孔位很小电源线很难穿进去，长记性了。先把电源线合理分配一下位置，穿穿孔位，稍微理一下，再电源固定一下</p>
+<h3 id="风冷散热"><a href="#风冷散热" class="headerlink" title="风冷散热"></a>风冷散热</h3><p>看视频，看散热器说明书。这一步我有点记不清当初装顺序了，好像是先把散热器扣具装到主板上，再把主板固定在机箱，CPU线插好，再把散热器装上。</p>
+<h3 id="主板固定"><a href="#主板固定" class="headerlink" title="主板固定"></a>主板固定</h3><p>看视频，我这个机箱，有时候视频里说的那种螺丝可能拧不上拧不紧，换种螺丝就正常了，不知道是不是因为机箱太次的原因，其实能固定好也就行了</p>
+<h3 id="主板接线，跳线接线"><a href="#主板接线，跳线接线" class="headerlink" title="主板接线，跳线接线"></a>主板接线，跳线接线</h3><p>看视频，看主板相关视频，选择性看机箱相关视频。一般接口位置大差不差，具体详细的或者不确定的（主要是主板的跳线接口位置差别可能稍微有点大）去看主板相关视频</p>
+<h3 id="显卡"><a href="#显卡" class="headerlink" title="显卡"></a>显卡</h3><p>看视频。值得一提的是显卡插槽也是有卡扣的，拆卸的时候要先打开卡扣</p>
+<h1 id="装完之后个人遇到的问题"><a href="#装完之后个人遇到的问题" class="headerlink" title="装完之后个人遇到的问题"></a>装完之后个人遇到的问题</h1><p>&emsp;&emsp;装完之后遇到的问题有点记不太清细节了，应该是当初HTML线插显卡再接显示器，然后根据从六年级开始玩电脑养成的开机习惯，先主机开机然后显示器开机，显示器无信号，主板右上角亮debug灯。<br>&emsp;&emsp;主要说说亮灯这件事，当时好像是红灯先亮后灭之后亮白灯然后亮黄灯，之后这俩常亮，对，一开始我觉得那是黄灯，OK，那我根据主板指示灯科普以为是内存和显卡问题。<br>&emsp;&emsp;然后就开始折腾，除了显卡和内存其他全不动，显卡拆下来，内存反复拔插，用纸用橡皮擦金手指、插单根等方法都试了还是同样问题，接着我就显卡内存都不插直接开机，好家伙，原因找到了，这次红灯灭完亮的是橙色灯，对，颜色是橙色，是那种冰红茶似的深黄色，不是浅黄色（真的是纸上得来终觉浅，绝知此事要躬行）！好，原因出在这儿了，这才是内存故障灯的颜色，说明之前从一开始内存都是没问题的。<br>&emsp;&emsp;接着内存再插进去，显卡再插进去，连接好先开显示器再开主机，静待几秒，显示器成功显示硬件参数英文提示。之后补课发现以前N刷硬件茶谈装机视频看过最后开显示器和debug灯的那部分，当时不太重视，这次装机时候跟着视频把显卡装完后就把视频关掉了，以为全部工作就结束了，剩下的无非再接接显示器鼠标键盘插座这种有手就行六年级就会的活，结果恰恰是这部分出了点小差错。新装主机的第一次开机合理顺序是先开显示器再开主机，目的是为了防止检测不到显示器开启显卡不输出信号；亮白灯原因就是因为显示器没提前开启，之前亮的那个浅黄接近绿色的灯是因为新硬盘里没系统，都是正常情况。<br>&emsp;&emsp;现在看来，整个装机流程也算是只有最后一步显示器主机开机顺序失误卡住，其他步骤没出大问题，还算圆满完美。</p>
+<p>首次尝试成功<br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="http://img.blog.1207.top/img/202501122216790.jpg"  height=300px><br>整理完机箱后<br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="http://img.blog.1207.top/img/202501122218322.jpg"  height=300px><br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="http://img.blog.1207.top/img/202501122208239.jpg"  height=300px></p>
+<h1 id="系统"><a href="#系统" class="headerlink" title="系统"></a>系统</h1><p>跟着德柱装系统，但是他那个视频也有点老了，建议配着其他视频综合看。</p>
+<h3 id="BIOS"><a href="#BIOS" class="headerlink" title="BIOS"></a>BIOS</h3><p>看视频。主板的内存超频选项不同以往有些许区别但一般都能看懂，然后就是跟着视频装系统，U盘ISO映像装到固态里了，但是华硕主板BIOS里识别不到固态硬盘，导致后面重启选不了固态只能进U盘PE系统</p>
+<h3 id="系统-1"><a href="#系统-1" class="headerlink" title="系统"></a>系统</h3><p>最后，我是使用官方直装法，PE法那些优势对我个人而言确实没多大作用。官方直装法一次成功直接进入安装界面，但是遇到了必须联网的阻碍，无法进行下一步，这时，之前主板亮灯自己白瞎折腾期间才加的QQ群作用开始显现了，拍照发群里，有一个大佬回答可以跳过这一步，发了个解决方法截图，我追要了链接，还是万能的CSDN，看了之后试了一下还真凭空出现了一个跳过按钮。。<br>问题步骤：<br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="http://img.blog.1207.top/img/202501172343900.jpg" height=250px><br>解决方法：</p>
+<blockquote>
+<p><a href="https://blog.csdn.net/chen20170325/article/details/127615233" target="_blank">Win11安装 (Win11 22H2) 不联网 跳过联网 激活 终极教程（解决：无法跳过联网，糟糕你已断开internet连接等问题）</a></p>
+</blockquote>
+<p>然后就是装系统成功激活成功双烤成功，万事大吉彻底圆满结束了这段经历。<br>装系统成功结束：<br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="http://img.blog.1207.top/img/202501131124317.jpg" height=250px><br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="http://img.blog.1207.top/img/202501172333368.png" height=250px><br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="http://img.blog.1207.top/img/202501172335903.png" width=70% height=340px><br>双烤通过：<br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="http://img.blog.1207.top/img/202501131124288.jpg" width=70% height=340px><br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="http://img.blog.1207.top/img/202501131124877.jpg" width=70% height=340px></p>
+</article><div class="post-copyright"><div class="post-copyright__title"><span class="post-copyright-info"><h>第一次装机全套流程圆满结束纪念</h></span></div><div class="post-copyright__type"><span class="post-copyright-info"><a href="http://example.com/2024/12/25/202412252340/">http://example.com/2024/12/25/202412252340/</a></span></div><div class="post-copyright-m"><div class="post-copyright-m-info"><div class="post-copyright-a"><h>作者</h><div class="post-copyright-cc-info"><h>Teng</h></div></div><div class="post-copyright-c"><h>发布于</h><div class="post-copyright-cc-info"><h>2024-12-25</h></div></div><div class="post-copyright-u"><h>更新于</h><div class="post-copyright-cc-info"><h>2024-12-25</h></div></div><div class="post-copyright-c"><h>许可协议</h><div class="post-copyright-cc-info"><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></div></div></div></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%94%B5%E8%84%91%E3%80%81win%E7%B3%BB%E7%BB%9F/">电脑、win系统</a></div><div class="post_share"><div class="social-share" data-image="/img/202405172136687.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2024/12/20/202412201520/" title="bilibili2024年度报告"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/ganyu.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">bilibili2024年度报告</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%89%E8%B4%AD"><span class="toc-number">2.</span> <span class="toc-text">选购</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%86%85%E5%AD%98%E7%A1%AC%E7%9B%98"><span class="toc-number">2.0.1.</span> <span class="toc-text">1. 内存硬盘</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%94%B5%E6%BA%90%E6%95%A3%E7%83%AD"><span class="toc-number">2.0.2.</span> <span class="toc-text">2. 电源散热</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%9C%BA%E7%AE%B1%E9%A3%8E%E6%89%87"><span class="toc-number">2.0.3.</span> <span class="toc-text">3. 机箱风扇</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E4%B8%BB%E6%9D%BFCPU%E6%98%BE%E5%8D%A1%E6%98%BE%E7%A4%BA%E5%99%A8"><span class="toc-number">2.0.4.</span> <span class="toc-text">4. 主板CPU显卡显示器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E6%98%BE%E5%8D%A1%E6%94%AF%E6%9E%B6%E3%80%81%E9%9B%86%E7%BA%BF%E5%99%A8"><span class="toc-number">2.0.5.</span> <span class="toc-text">5. 显卡支架、集线器</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A3%85%E6%9C%BA"><span class="toc-number">3.</span> <span class="toc-text">装机</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CPU"><span class="toc-number">3.0.1.</span> <span class="toc-text">CPU</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E5%AD%98"><span class="toc-number">3.0.2.</span> <span class="toc-text">内存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BA%E6%80%81"><span class="toc-number">3.0.3.</span> <span class="toc-text">固态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IO%E6%8C%A1%E6%9D%BF%E5%92%8C%E6%98%BE%E5%8D%A1pcle%E6%8C%A1%E6%9D%BF"><span class="toc-number">3.0.4.</span> <span class="toc-text">IO挡板和显卡pcle挡板</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%B5%E6%BA%90%E7%BA%BF"><span class="toc-number">3.0.5.</span> <span class="toc-text">电源线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A3%8E%E5%86%B7%E6%95%A3%E7%83%AD"><span class="toc-number">3.0.6.</span> <span class="toc-text">风冷散热</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E6%9D%BF%E5%9B%BA%E5%AE%9A"><span class="toc-number">3.0.7.</span> <span class="toc-text">主板固定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E6%9D%BF%E6%8E%A5%E7%BA%BF%EF%BC%8C%E8%B7%B3%E7%BA%BF%E6%8E%A5%E7%BA%BF"><span class="toc-number">3.0.8.</span> <span class="toc-text">主板接线，跳线接线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%98%BE%E5%8D%A1"><span class="toc-number">3.0.9.</span> <span class="toc-text">显卡</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A3%85%E5%AE%8C%E4%B9%8B%E5%90%8E%E4%B8%AA%E4%BA%BA%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">4.</span> <span class="toc-text">装完之后个人遇到的问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F"><span class="toc-number">5.</span> <span class="toc-text">系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#BIOS"><span class="toc-number">5.0.1.</span> <span class="toc-text">BIOS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F-1"><span class="toc-number">5.0.2.</span> <span class="toc-text">系统</span></a></li></ol></li></ol></li></ol></div></div></div></div></main><footer id="footer" style="background-image: url('/img/202405172136687.jpeg')"><div id="footer-wrap"><div id="ft"></div><div id="workboard"></div><div class="copyright"><span><b>&copy;2020 - 2025</b></span><span><b>&nbsp;&nbsp;By Teng</b></span></div><div class="footer_custom_text"><a href="https://beian.mps.gov.cn/#/query/webSearch" rel="noreferrer" target="_blank"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/备案图标.png" style="width:16px;height:16px"/> 苏公网安备32020502001159</a> | <a href="http://beian.miit.gov.cn/" target="_blank"><span>豫ICP备2024067764号</span></a></div><p id="ghbdages"><a class="github-badge" target="_blank" href="https://git-scm.com/" style="margin-inline:5px" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Git-%23FB3500?logo=git&amp;label=Manage&amp;color=%23FB3500" alt=""/></a><a class="github-badge" target="_blank" href="https://github.com/" style="margin-inline:5px" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Github-372E42?logo=github&amp;label=Source&amp;color=1ECF54&amp;link=https%3A%2F%2Fgithub.com%2F" alt=""/></a><a class="github-badge" target="_blank" href="https://vercel.com/" style="margin-inline:5px" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Vercel-%23000000?logo=vercel&amp;label=Hosted&amp;color=A765F6" alt=""/></a><a class="github-badge" target="_blank" href="https://aliyun.com/" style="margin-inline:5px" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Alibaba_Cloud-85A9F8?logo=alibabacloud&amp;label=Server&amp;color=FF5201" alt=""/></a><a class="github-badge" target="_blank" href="https://icp.gov.moe/?keyword=20242400" style="margin-inline:5px" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/萌ICP备-20242400-ff0c86?style-flat&amp;logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAABS2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxNDIgNzkuMTYwOTI0LCAyMDE3LzA3LzEzLTAxOjA2OjM5ICAgICAgICAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIi8+CiA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgo8P3hwYWNrZXQgZW5kPSJyIj8+nhxg7wAAByxJREFUSInl1nlwVeUZx/HPuTckkD0kQFiCEEIUlNUCAqKoSBV1AIt1ikpVLFbLONjWGUXbmWrbweJMy7hUxbbTjsUq6KCiWEvr0kE2WVK2QCKBJCxJgEASsienfxwqMob+3Zm+f93z3vM+32f5vc9z+H9bwVcfOp/YQ+1prhhEZS1VDQzqQ1MjiQmIC5Liwm3lBWpqFimrulb/7A/067vM2IsOBZ2h8MhJQW6KMDNVsKeaizKEyUlsKueqgWJ39AMJF3QpDCNYr1SaEig/lWNX2Z1h6dH5/lVyGdVIZFf7MHo9bEfh9rCg/+8NyHlN77QTsnpQ0i2y08VK+BosfhbW0cHxqmSfFd9qW+l9Pi+5WltFdGTsOBbO5dJcdh3lN5+xff0Y2zuelXjRsyYUrjOu4BVJaavlpbWIJRBLOM+J81O95AAnTtM9vNHGknut3zdT48FutJE3koWTuG4oSXH+VsInX3B9IdcVUNfCuv08t4GjO6NspOa3BNcOXx1eOugVHQnrTMkTuyWrC/BjRZO9uPYTpw7HhTWkXcLd45l9GblpHD7NWzt5ZTMXZ/OdkTy+lvR07rmcmWffq6pn9W5e/oymfcT6kJbXHiydMyVYkL/x66n+ZMcctQfjhgxl6UIGZ3Ooltd2RIZqjqKRS0ew9cFIA1cO5urlLHuPZWsZPJiZw7gqn0VT2HCIR9+jvCQhfHPrLGyE2Hng2roBxHnmJoZnc9drbD3I6QaaWkjpSVoeu4+x5XB05qMDqCenHz37UHmcFRv54ZuMeoYrB/L0DPRgZ0WfrsXVKzPX3nYykrn3dUZl8+Q0Qox/gc/L6ZlKzxQefo+UROpa6Z4VCedkPd8YyJYHI3u5T/HAShZNQxsXZfR3pCtwRW066VEeOuIUVUf77+9jTw2pycTOJml7Je1t9EgiI5X2jkgyze1fCSSdtjhBiJCkpKyuI+5oTdAtkTCgVwrbKsl8ko6QjO40tZ67EpkpdIbRf20dkbPpPTjdwsSX6I5dJYy4hoQAaZQdDy4A1iEMI613T6LtBPXJpPakrjGqc1Y6CTFq62htJp5KRwPJKWSkU3WKiiPEEqO6xgM6oZmctJhDXYH7Z59xuCyKpK6R26ZE+ys3MWYoN1/Mc5uoqmbEQJ6fTc/ulJ3i/lUc+YIfzeKhKzjVHN31A3XRHddKSrf6/6DOV3VTcw1hVKfkxOhaPDAe1UwfwmNTqT1Drxw+nE9xNXetIjHG2vnoxoT+rNrN2Of58Rp6JZ+ldKes5kjX4G7dKuikpoERfaltYnQ/DOSS3hEAFk9lXQkLnmf7Ib65lPJT3HU1+46Tm8rYvgzKYVA2h+vQIMjvewHwdSN20MiOSmZczO4a1hSzYi77T7CiiPF5JMTZexjJ5OagkwNV9M+MnJ09nKU3smgyQ3PYWoEO4fUjii4QceJmevJuMeP6csUAln4atcbSGoqOUpjD30uZNwnpHNtN3lC+NZa1xeT34pGVTJ3PL9+Ohs6GQ8gVtHZs6VLVwZhBReGwoXvt3THM/hP0SWVnCR8f4PMjkffjB/DQS8waxpHFfFgaaeHZDRRtJn0yP5tF31ymFVJ2nN27GD66KBzca2/XEWdkUpD3Fmd4tYj0FMS54Q9UnuaDUv6yE/24ewWP/DU6N/d1fvousYEs28DyLVEvGDOAt/egmSkXv2VYn3NBfpXbua6J8hMFFvy2RHsL+57gmX+w/AN651PfEDWQzLRI+afqIqOxFDJT6Rbn9Bmad3PnTH5wIxOXkJTWGiz57hCDsyqDWVldRNzeyOh+paaPfpFKnvqQX88iZwDVx0lLJqUHbe3EkZ1Odm+yUqK2GHYKmhvIG8fyeTz9IY5x67jnFPapdPDkl6jzwEF9IDjZJlgwfbG+o2u8+g4rd7D/UYI41TXnevV5K4j2q6uESckUP8rvNrH6fUH/sRXB9AlPONMSDZ8uazwoi56JjEyvdftV88jinhf4uIzmJRQOoOYgja0RKAiIBZxpjvZH5tP0c97axcLlyBXOuWZemJTYFFbUCU+1dl3j8PGSyFhnJ7EkYcWh7/njqpep5xfzWTyZZ7dEg73xOJKiGqf3YenNLBjLTz7i539COg/OvSOYO2GFo/VRG0Zwe0YX4Ns3R7NXSCxBeM8IthXfZvGf3xCWc/kkXvg2vVP4YB/rDzC1gGlDo+50/xvs2khKPrNnzAzmTH5HbzR0fkkKro93Ab5vx9kfaGgT3lLA5EyWbRpoTdHbSreOppGJV/PwlRTksK+aZz5l6z+RLBgxaau5k2cJelTKzmRQMq0d51J8UxL+23d1TDTcj7WQllZu4YwxDo+eZc22X9mwd6gN65GIFmQzampxcMOoR1xeuMbpVoqromsXdG3+wmCiekNtfSSmiUNWu2zgap+WjlZW8X11TeNkpWwICvNfCm8u3Cmxg4PN0VdmEJw7/7+0/g32RaqCbhRecAAAAABJRU5ErkJggg==" alt=""/></a><a class="github-badge" target="_blank" href="https://www.upyun.com/" style="margin-inline:5px" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/CDN-又拍云-009fff?style=flat&amp;logo=data:image/png;base64,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" alt=""/></a><a class="github-badge" target="_blank" href="http://www.qiniup.com/" style="margin-inline:5px" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Storage-七牛云-4abce5?style=flat&amp;logo=data:image/png;base64,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" alt=""/></a><a class="github-badge" target="_blank" href="https://tongji.baidu.com/" style="margin-inline:5px" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Analytics-Baidu-3245df?style=flat&amp;logo=data:image/png;base64,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" alt=""/></a><a class="github-badge" target="_blank" href="https://www.51.la/" style="margin-inline:5px" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Statistics-51LA-41a5f5?style=flat&amp;logo=data:image/png;base64,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" alt=""/></a><a class="github-badge" target="_blank" href="https://creativecommons.org/" style="margin-inline:5px" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/CC_BY--NC--SA-%23FB3500?logo=creativecommons&amp;label=Copyright&amp;color=%23EF9421" alt=""/></a></p></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button><button id="go-down" type="button" title="直达底部" onclick="btf.scrollToDest(document.body.scrollHeight, 500)"><i class="fas fa-arrow-down"></i></button></div></div><div class="js-pjax" id="rightMenu"><div class="rightMenu-group rightMenu-small"><a class="rightMenu-item" href="javascript:window.history.back();"><i class="fa fa-arrow-left"></i></a><a class="rightMenu-item" href="javascript:window.history.forward();"><i class="fa fa-arrow-right"></i></a><a class="rightMenu-item" href="javascript:window.location.reload();"><i class="fa fa-refresh"></i></a><a class="rightMenu-item" href="javascript:rmf.scrollToTop();"><i class="fa fa-arrow-up"></i></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-text"><a class="rightMenu-item" href="javascript:window.open(&quot;https://www.baidu.com/s?wd=&quot;+window.getSelection().toString());window.location.reload();"><i class="fa fa-search"></i><span>百度搜索</span></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-too"><a class="rightMenu-item" href="javascript:window.open(window.getSelection().toString());window.location.reload();"><i class="fa fa-link"></i><span>转到链接</span></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-paste"><a class="rightMenu-item" href="javascript:rmf.paste()"><i class="fa fa-copy"></i><span>粘贴</span></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-post"><a class="rightMenu-item" href="javascript:rmf.copyWordsLink()"><i class="fa fa-link"></i><span>复制本文地址</span></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-to"><a class="rightMenu-item" href="javascript:rmf.openWithNewTab()"><i class="fa fa-window-restore"></i><span>新窗口打开</span></a><a class="rightMenu-item" id="menu-too" href="javascript:rmf.open()"><i class="fa fa-link"></i><span>转到链接</span></a><a class="rightMenu-item" href="javascript:rmf.copyLink()"><i class="fa fa-copy"></i><span>复制链接</span></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-img"><a class="rightMenu-item" href="javascript:rmf.openWithNewTab()"><i class="fa fa-window-restore"></i><span>在新窗口打开</span></a></div><div class="rightMenu-group rightMenu-line"><a class="rightMenu-item" href="/about"><i class="fa fa-info-circle"></i><span>关于博客</span></a><a class="rightMenu-item" href="javascript:rmf.switchReadMode();"><i class="fa fa-book"></i><span>阅读模式</span></a><a class="rightMenu-item" href="javascript:rmf.fullScreen();"><i class="fas fa-expand"></i><span>切换全屏</span></a><a class="rightMenu-item" href="javascript:window.print();"><i class="fa-solid fa-print"></i><span>打印页面</span></a></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="/js/tw_cn.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.8/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.16/dist/snackbar.min.js"></script><div class="js-pjax"></div><script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script><script src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/js/main.js"></script><script src="/js/sakura.js?1"></script><script async src="/js/fps.js"></script><script defer src="https://npm.elemecdn.com/jquery@latest/dist/jquery.min.js"></script><script async src="//npm.elemecdn.com/pace-js@1.2.4/pace.min.js"></script><script defer data-pjax src="/js/cat.js"></script><div class="aplayer no-destroy" data-id="8686077468" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="false" data-lrcType="-1"> </div><script defer src="/js/runtime.js"></script><script defer src="/js/egaobiaoti.js"></script><script async src="//at.alicdn.com/t/c/font_4544938_khkd1b5koen.js"></script><script type="text/javascript" src="https://cdn1.tianli0.top/npm/jquery@latest/dist/jquery.min.js"></script><script type="text/javascript" src="/js/rightmenu.js"></script><script type="text/javascript" src="/js/f12.js"></script><script defer src="/live2d-widget/autoload.js"></script><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/canvas-fluttering-ribbon.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/click-heart.min.js" async="async" mobile="false"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener
+  btf.removeGlobalFnEvent('pjax')
+  btf.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_clock_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/hexo-butterfly-clock/lib/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_injector_config();
+  }
+  </script><script src="https://pv.sohu.com/cityjson?ie=utf-8"></script><script data-pjax src="https://npm.elemecdn.com/hexo-butterfly-clock/lib/clock.min.js"></script><script data-pjax>
+    function butterfly_categories_card_injector_config(){
+      var parent_div_git = document.getElementById('recent-posts');
+      var item_html = '<style>li.categoryBar-list-item{width:32.3%;}.categoryBar-list{max-height: 380px;overflow:auto;}.categoryBar-list::-webkit-scrollbar{width:0!important}@media screen and (max-width: 650px){.categoryBar-list{max-height: 320px;}}</style><div class="recent-post-item" style="height:auto;width:100%;padding:0px;"><div id="categoryBar"><ul class="categoryBar-list"><li class="categoryBar-list-item" style="background:url(https://blogkiana.oss-cn-nanjing.aliyuncs.com/blogime/202405170909625.png);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/项目部署/&quot;);" href="javascript:void(0);">项目部署</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr"></span></li><li class="categoryBar-list-item" style="background:url(https://blogkiana.oss-cn-nanjing.aliyuncs.com/blogime/202405170909622.png);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/css/&quot;);" href="javascript:void(0);">css</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr"></span></li><li class="categoryBar-list-item" style="background:url(https://blogkiana.oss-cn-nanjing.aliyuncs.com/blogime/202405170909624.png);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/win电脑问题/&quot;);" href="javascript:void(0);">win电脑问题</a><span class="categoryBar-list-count">2</span><span class="categoryBar-list-descr"></span></li><li class="categoryBar-list-item" style="background:url(https://blogkiana.oss-cn-nanjing.aliyuncs.com/blogime/202405170909623.png);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/装机/&quot;);" href="javascript:void(0);">装机</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr"></span></li></ul></div></div>';
+      console.log('已挂载butterfly_categories_card')
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+      }
+    if( document.getElementById('recent-posts') && (location.pathname ==='/'|| '/' ==='all')){
+    butterfly_categories_card_injector_config()
+    }
+  </script><script data-pjax>
+  function butterfly_swiper_injector_config(){
+    var parent_div_git = document.getElementById('recent-posts');
+    var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2024/05/24/202405242225/&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/202405102027745.jpeg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2024-05-24</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2024/05/24/202405242225/&quot;);" href="javascript:void(0);" alt="">谷歌浏览器、edge浏览器自动闪退问题解决</a><div class="blog-slider__text">点击查看！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2024/05/24/202405242225/&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2024/05/11/202405112215/&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/202405102024591.jpeg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2024-05-11</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2024/05/11/202405112215/&quot;);" href="javascript:void(0);" alt="">如何打开电脑提示有病毒禁止打开的文件</a><div class="blog-slider__text">点击查看！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2024/05/11/202405112215/&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2024/06/04/202406040046/&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/202405102027745.jpeg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2024-06-04</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2024/06/04/202406040046/&quot;);" href="javascript:void(0);" alt="">媒体查询使用途中遇到的小问题</a><div class="blog-slider__text">点击查看！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2024/06/04/202406040046/&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+    console.log('已挂载butterfly_swiper')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'undefined'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_swiper_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_swiper_injector_config();
+  }
+  </script><script defer src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js"></script><script defer src="https://npm.elemecdn.com/jquery@latest/dist/jquery.min.js"></script><script defer src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/issues.js"></script><script async src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":true},"rect":"opacity:0.7","log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body></html>
