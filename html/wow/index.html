@@ -144,7 +144,6 @@ video {
                 <label for="rememberMe">记住我</label>
             </div>
             <button id="Password">去注册</button>
-
         </div> -->
     </div>
 <script>
@@ -177,7 +176,7 @@ video {
 const CONFIG = {
   salt: "2a$12$Xa4z7M3sP9qN0bQwKjYyZ.", // 随机生成的长盐值
   storedHash: "d6b62b90184ba557b05161e81e2150570007e3ff4fe118bd13b705c64dc8fed6", // 运行 generateHash('你的密码') 生成哈希存入 storedHash
-  encryptedContent: "U2FsdGVkX1+dGqtWJ9Rrf01KCMj/JFkCez9mZPO8tsxriwqGTR5qrjDUPVruTlEw" // 使用在线工具加密内容：CryptoJS.AES.encrypt("你的内容", "密码").toString()
+/*   encryptedContent: "U2FsdGVkX1+dGqtWJ9Rrf01KCMj/JFkCez9mZPO8tsxriwqGTR5qrjDUPVruTlEw" // 使用在线工具加密内容：CryptoJS.AES.encrypt("你的内容", "密码").toString() */
 };
 // 生成密码哈希（初始化时使用）
 function generateHash(password) {
