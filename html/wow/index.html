@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>私人空间</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            transition: .3s;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+         /*    background-image: url(./img/1.png);
+            background-size: cover; */
+/* MP4作为背景 */
+            overflow: hidden; /* 防止滚动条出现 */
+    position: relative; /* 用于定位视频 */
+        }
+        body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('./img/8.mp4') no-repeat center center/cover; /* 备用图片 */
+    z-index: -1;
+}
+video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -2;
+    transform: translateX(-50%) translateY(-50%);
+    background-size: cover;
+    pointer-events: none; /* 防止视频干扰点击事件 */
+}
+        .shell {
+            width: 350px;
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            background-color: #ffffff49;
+            border-radius: 50px;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.5) inset;
+            transform: translateY(-50px);
+        }
+        .title {
+            font-size: 80px;
+            margin-bottom: 30px;
+            color: #fff;
+            text-shadow: 0 0 10px #ff9dff80;
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            height: 50px;
+            margin: 10px 0;
+            box-sizing: border-box;
+            color: rgb(0, 0, 0);
+            border: 5px solid transparent;
+            background: rgba(255, 255, 255, .5);
+            border-radius: 100px;
+            padding: 5px 20px 0 20px;
+            transition: 0.3s;
+            font-size: 18px;
+            outline: none
+        }
+        input[type="text"]:hover,
+        input[type="password"]:hover {
+            background: rgba(255, 255, 255, 0);
+            border: 5px solid #ffffff;
+        }
+        button{
+            width: 100%;
+            height: 50px;
+            padding: 10px;
+            margin: 15px 0;
+            border-radius: 100px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            font-size: 20px;
+            letter-spacing: 3px;
+        }
+        input::placeholder {
+            color: #92A7E8;
+        }
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-top: 20px;
+        }
+        .Remember {
+            opacity: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            color: #7597ff;
+        }
+        input[type="checkbox"] {
+            display: block;
+            width: 25px;
+            height: 25px;
+            margin-right: 10px;
+            background-color: #007bff;
+        }
+        #Password {
+            border: none;
+            background-color: #ffffff00;
+            color: #7597ff;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+  <video autoplay muted loop>
+    <source src="./img/8.mp4" type="video/mp4">
+    您的浏览器不支持HTML5视频标签。
+</video>
+    <div class="shell">
+        <h2 class="title">验证</h2>
+        <!-- <input type="text" id="username" placeholder="Username"> -->
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="login()">进入</button>
+<!--         <div class="footer">
+            <div class="Remember">
+                <input type="checkbox" id="rememberMe">
+                <label for="rememberMe">记住我</label>
+            </div>
+            <button id="Password">去注册</button>
+
+        </div> -->
+    </div>
+<script>
+    // document.getElementById('Password').addEventListener('click', function () {
+    //     var title = document.querySelector('.title');
+    //     var loginBtn = document.getElementById('loginBtn');
+    //     var rememberMeLabel = document.querySelector('.Remember');
+    //     var passwordBtn = document.getElementById('Password');
+    //     if (title.innerText === 'Login') {
+    //         title.innerText = 'Register';
+    //         loginBtn.value = 'Register';
+    //         rememberMeLabel.style.opacity = '0';
+    //         passwordBtn.innerText = '去登录';
+    //         document.getElementById('username').value = '';
+    //         document.getElementById('password').value = '';
+    //         document.getElementById('username').placeholder = 'New Username';
+    //         document.getElementById('password').placeholder = 'New Password';
+    //         document.getElementById('password').type = 'password';
+    //     } else {
+    //         title.innerText = 'Login';
+    //         loginBtn.value = 'Login';
+    //         rememberMeLabel.style.opacity = '1';
+    //         passwordBtn.innerText = '去注册';
+    //         document.getElementById('username').placeholder = 'Username';
+    //         document.getElementById('password').placeholder = 'Password';
+    //         document.getElementById('password').type = 'password';
+    //     }
+    // });
+// 配置项（盐值和加密后的密码）
+const CONFIG = {
+  salt: "2a$12$Xa4z7M3sP9qN0bQwKjYyZ.", // 随机生成的长盐值
+  storedHash: "d6b62b90184ba557b05161e81e2150570007e3ff4fe118bd13b705c64dc8fed6", // 运行 generateHash('你的密码') 生成哈希存入 storedHash
+  encryptedContent: "U2FsdGVkX1+dGqtWJ9Rrf01KCMj/JFkCez9mZPO8tsxriwqGTR5qrjDUPVruTlEw" // 使用在线工具加密内容：CryptoJS.AES.encrypt("你的内容", "密码").toString()
+};
+// 生成密码哈希（初始化时使用）
+function generateHash(password) {
+  return CryptoJS.SHA256(password + CONFIG.salt).toString();
+}
+// 登录验证
+function login() {
+  const inputHash = generateHash(document.getElementById('password').value);
+  if(inputHash === CONFIG.storedHash) {
+    sessionStorage.setItem('isLoggedIn', 'true');
+    window.location.href = 'index11.html';
+  /*   sessionStorage.setItem('authenticated', 'true');
+    showPrivateContent();//密码哈希匹配成功登录后调用函数解密内容，密匙也是登录密码 */
+  } else {
+    alert("密码错误");
+  }
+}
+// 显示加密内容，解密内容函数
+/* function showPrivateContent() {
+  try {
+    const bytes = CryptoJS.AES.decrypt(
+      CONFIG.encryptedContent,//使用暗文和密匙转译成内容
+      document.getElementById('password').value
+    );
+    const content = bytes.toString(CryptoJS.enc.Utf8);
+    document.getElementById('login').style.display = 'none';
+    document.getElementById('privateContent').innerHTML = content;
+    document.getElementById('privateContent').style.display = 'block';
+  } catch(e) {
+    alert("解密失败");
+  }
+} */
+</script>
+</body>
+</html> 
