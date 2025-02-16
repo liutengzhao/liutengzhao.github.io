@@ -1,22 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>星辰大海</title>
-    <style>
-        body {
-            overflow: hidden;
-            margin: 0;
-        }
-    </style>
-</head>
-
-<body>
-    <script type="module">
-        // 导入三维模型库
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>星辰大海</title><link rel="stylesheet" href="./style.css"></head><body><script type="module">// 导入三维模型库
         import * as THREE from "https://cdn.skypack.dev/three@0.136.0";
         // 导入轨道控制库
         import { OrbitControls } from "https://cdn.skypack.dev/three@0.136.0/examples/jsm/controls/OrbitControls";
@@ -193,8 +175,4 @@
             p.rotation.y = t * 0.05
             // 渲染场景（scene）和相机（camera）
             renderer.render(scene, camera)
-        })
-    </script>
-</body>
-
-</html>
+        })</script><script src="./script.js"></script></body></html>

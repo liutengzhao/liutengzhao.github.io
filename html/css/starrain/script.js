@@ -1,38 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>流星雨</title>
-    <style>
-        * {
-            padding: 0;
-            margin: 0;
-        }
-
-        body {
-            width: 100%;
-            height: 100vh;
-            /* 背景渐变 */
-            background-image: linear-gradient(-225deg, #231557 0%,
-                    #43107a 29%, #FF1361 100%);
-        }
-
-        canvas {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-        }
-    </style>
-</head>
-
-<body>
-
-    <canvas></canvas>
-
-</body>
-<script>
 
     // 定义星星的颜色
     const STAR_COLOR = '#fff';
@@ -247,6 +212,61 @@
         pointerX = null;
         pointerY = null;
     }
-</script>
 
-</html>
+document.addEventListener('contextmenu', function(e) {
+  e.preventDefault();
+});
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'F12' || 
+      (e.ctrlKey && e.shiftKey && e.key === 'I') ||  // Ctrl+Shift+I
+      (e.ctrlKey && e.shiftKey && e.key === 'J') ||  // Ctrl+Shift+J
+      (e.ctrlKey && e.key === 'U')) {                // Ctrl+U
+    e.preventDefault();
+    return false;
+  }
+});
+
+setInterval(() => {
+  console.clear();
+}, 1000);
+
+
+(function() {
+    let devtools = false;
+    let threshold = 160;
+  
+    function detectDevTools() {
+      devtools = false;
+      let widthThreshold = window.outerWidth - window.innerWidth > threshold;
+      let heightThreshold = window.outerHeight - window.innerHeight > threshold;
+      if (widthThreshold || heightThreshold) {
+        devtools = true;
+      }
+      return devtools;
+    }
+  
+    setInterval(function() {
+      if (detectDevTools()) {
+        window.location.href = 'https://1207.top/';
+      }
+    }, 100);
+  
+    window.addEventListener('resize', function() {
+      if (detectDevTools()) {
+        window.location.href = 'https://1207.top/';
+      }
+    });
+  
+    window.addEventListener('focus', function() {
+      if (detectDevTools()) {
+        window.location.href = 'https://1207.top/';
+      }
+    });
+  
+    window.addEventListener('blur', function() {
+      if (detectDevTools()) {
+        window.location.href = 'https://1207.top/';
+      }
+    });
+  })();

