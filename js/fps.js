@@ -24,18 +24,12 @@ if (window.localStorage.getItem("fpson") == undefined || window.localStorage.get
 
         if (now > 1000 + lastTime) {
             var fps = Math.round((frame * 1000) / (now - lastTime));
-            if (fps <= 5) {
-                var kd = `<span style="color:#bd0000">卡成ppt🤢</span>`
-            } else if (fps <= 15) {
-                var kd = `<span style="color:red">电竞级帧率😖</span>`
-            } else if (fps <= 25) {
-                var kd = `<span style="color:orange">有点难受😨</span>`
-            } else if (fps < 35) {
-                var kd = `<span style="color:#9338e6">不太流畅🙄</span>`
-            } else if (fps <= 45) {
-                var kd = `<span style="color:#08b7e4">还不错哦😁</span>`
+            if (fps <= 30) {
+                var kd = `<span style="color:orange">能玩</span>`
+            } else if (fps <= 60) {
+                var kd = `<span style="color:#08b7e4">流畅</span>`
             } else {
-                var kd = `<span style="color:#39c5bb">十分流畅🤣</span>`
+                var kd = `<span style="color:#39c5bb">电竞</span>`
             }
             document.getElementById("fps").innerHTML = `FPS:${fps} ${kd}`;
             frame = 0;

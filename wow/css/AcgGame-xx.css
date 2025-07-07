@@ -1,0 +1,62 @@
+/* * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+        } */
+
+
+/* 开局标题页，因为开局百分百视口内不能在默认背景城堡上点击任何按钮，除非自己自定义一个背景再在上面放按钮，所以直接用做只看不点击的标题页 */
+        .AcgGame-xx{
+            font-family: 'Arial', sans-serif;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .AcgGame-xx-banner {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        .AcgGame-xx-banner-text {
+            position: relative;
+            z-index: 5;
+            color: white;
+        }
+        
+        .AcgGame-xx-main-title {
+            /* position: absolute;
+            top: 20px;
+            left: 20px; */
+            font-size: 5rem;
+            color: white;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 4px rgb(255, 255, 255, 0.5);
+        }
+        
+        .AcgGame-xx-sub-titles {
+            /* position: absolute;
+            top: 80px;
+            left: 20px; */
+            color: white;
+            letter-spacing: 3px;
+            text-shadow: 1px 1px 2px rgb(255, 255, 255, 0.5);
+        }
+        
+        .AcgGame-xx-sub-titles h2 {
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
