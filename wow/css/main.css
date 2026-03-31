@@ -495,7 +495,7 @@ height: auto;
          left:0px;
          width: 50px;
          height: 100%;
-         background-color: rgb(255, 255, 255);
+         background-color: rgba(255, 255, 255, 0.221);
          /* 元素沿X轴45横切，沿X轴右移150px */
          transform: skewX(45deg) translateX(150px);
          /* 动画过渡 */
@@ -505,3 +505,10 @@ height: auto;
          /* 元素沿X轴45横切，沿X轴左移150px */
          transform: skewX(45deg) translateX(-150px);
      } 
+
+/* 底部样式 */
+footer {
+    background: #2d2d2d;
+    padding: 2rem;
+    text-align: center;
+}

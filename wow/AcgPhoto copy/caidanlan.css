@@ -1,0 +1,597 @@
+    @font-face {
+    font-family: 'MaoKenShiJinHei-2'; /* 自定义字体名称，可任意取名 */
+    src: url('fonts/MaoKenShiJinHei-2.ttf') format('truetype'); /* 字体路径 */
+    font-weight: normal; /* 默认字体粗细 */
+    font-style: normal; /* 默认字体样式 */
+}
+@font-face {
+    font-family: 'YouSheBiaoTiHei-2'; /* 自定义字体名称，可任意取名 */
+    src: url('fonts/YouSheBiaoTiHei-2.ttf') format('truetype'); /* 字体路径 */
+    font-weight: normal; /* 默认字体粗细 */
+    font-style: normal; /* 默认字体样式 */
+}
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+            transition: all 0.3s ease;
+        }
+        
+        body {
+            overflow-x: hidden;
+        }
+
+        /* 点击主页按钮还是其他锚点链接，都会以平滑滚动的方式导航。 */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* 右上角主页按钮样式 */
+        .home-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px; /* 对称于左侧菜单按钮 */
+            z-index: 100;
+            width: 40px;
+            height: 40px;
+            background: rgba(0,0,0,0.7);
+            background: rgba(0,0,0,0);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        
+
+        
+        /* 菜单/关闭按钮样式 */
+        .menu-toggle {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+            width: 40px;
+            height: 40px;
+            background: rgba(0,0,0,0.7);
+            background: rgba(0,0,0,0);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .menu-toggle .menu-icon {
+            display: block;
+            width: 33px;
+            height: 7px;
+            /* background: white; */
+            background: #ff4747;
+            position: relative;
+            background: transparent;
+        }
+        
+        .menu-toggle .menu-icon::before,
+        .menu-toggle .menu-icon::after {
+            content: '';
+            position: absolute;
+            width: 33px;
+            height: 7px;
+            /* background: white; */
+            background: #ff4747;
+            transition: all 0.3s ease;
+        }
+        
+        .menu-toggle .menu-icon::before {
+            top: -6px;
+        }
+        
+        .menu-toggle .menu-icon::after {
+            top: 6px;
+        }
+        
+        .menu-toggle.active .menu-icon {
+            background: transparent;
+        }
+        
+        .menu-toggle.active .menu-icon::before {
+            transform: rotate(45deg);
+            top: 0;
+        }
+        
+        .menu-toggle.active .menu-icon::after {
+            transform: rotate(-45deg);
+            top: 0;
+        }
+        
+        /* 侧边菜单样式 */
+        .side-menu {
+            position: fixed;
+            top: 0;
+            left: -400px;
+            width: 400px;
+            height: 100vh;
+            background: #000;
+            z-index: 99;
+            display: flex;
+            flex-direction: column;
+            padding: 80px 0;
+        }
+        
+        .side-menu.active {
+            left: 0;
+        }
+        
+        .menu-item {
+            width: 100%;
+            padding: 10px 0;
+            text-align: center;
+            color: white;
+            font-size: 70px;
+            font-family: 'YouSheBiaoTiHei-2', sans-serif;
+            /* font-family: 'MaoKenShiJinHei-2', sans-serif; */
+            /* font-weight: bold; */
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            opacity: 0.8;
+            transform: scale(1);
+            background: transparent;
+            border-radius: 0;
+        }
+        
+        .menu-item:hover {
+            background: #333;
+            color: #ff9900;
+            opacity: 1;
+            transform: scale(0.95);
+            border-radius: 10px;
+        }
+        
+        .menu-item.active {
+            color: #ff9900;
+            opacity: 1;
+            transform: scale(1);
+            border-radius: 0;
+        }
+        
+        /* 内容区域样式 */
+        .content {
+            width: 100%;
+            min-height: 100vh;
+            padding-left: 0;
+            transition: padding-left 0.3s ease;
+        }
+        
+        .content.menu-active {
+            padding-left: 300px;
+        }
+        
+        /* 壁纸区域 */
+        .wallpaper {
+            width: 100%;
+            height: 60vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 3rem;
+            text-align: center;
+            position: relative; /* 关键：让子元素定位基于它 */
+            background-image: url('your-image-path.jpg'); /* 替换为你的图片路径 */
+            background-size: cover; /* 图片覆盖整个区域 */
+            background-position: center; /* 图片居中显示 */
+        }
+
+        /* 遮罩 */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4); /* 黑色 + 40% 不透明度 */
+            z-index: 1; /* 确保遮罩在背景之上，但低于内容 */
+            pointer-events: none; /* 点击事件穿透遮罩 */
+        }
+
+        .tilted-box {
+            position: absolute;
+            right: 30px;
+            bottom: 20px;
+            padding: 10px 80px 10px 30px;/* 上右下左 */
+            background-color: #ff99ff;
+            transform: skewX(-20deg);
+            font-style: italic;
+            color: white;
+            font-size: 50px;
+            z-index: 2;
+            border-radius: 2px;
+        }
+        
+        .tilted-box span {
+            display: block;
+            transform: skewX(20deg); /* 抵消父容器的倾斜，使文字正立 */
+            letter-spacing: 1px; /* 每个字之间的间距 */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* 添加文字阴影 */
+            color: #fffefe; /* 更亮的白色 */
+            font-family: 'MaoKenShiJinHei-2', sans-serif;
+        }
+        
+        /* 卡片区域 */
+        .cards-container {
+            display: grid;
+            justify-content: center; /* 水平居中 */
+            align-items: center;     /* 垂直居中（可选） */
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            width: 100%;
+            padding: 40px;
+            gap: 30px;/* 设置卡片间距 */
+        }
+        
+        .card {
+            background: #f5f5f5;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        /* 上方图片区 */
+        .card-img-container {
+            position: relative;
+            width: calc(100% - 20px);
+            height: 200px;
+            margin: 10px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .card-img-container .image-link {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            display: block;
+        }
+        
+        .card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        /* 覆盖时图片上层的遮罩 */
+        .card-img-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(107, 153, 222, 0.7);
+            background: #7898d6;
+            background: rgba(120, 152, 214, 0.7); /* 50% 不透明度 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        /* 遮罩内的文字 */
+        .card-img-text {
+            color: white;
+            font-size: 1.2rem;
+            font-style: italic;
+            font-size: 20px;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.7); /* 添加文字阴影 */
+            font-weight: bold;
+            text-align: center;
+            opacity: 0;
+            transform: translateX(-100%);
+            transition: all 0.3s ease;
+        }
+        
+        .card-img-container:hover .card-img {
+            transform: scale(1.1);
+        }
+        
+        .card-img-container:hover .card-img-overlay {
+            opacity: 1;
+        }
+        
+        .card-img-container:hover .card-img-text {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        /* 下方描述区 */
+        .card-content {
+            padding: 20px;
+        }
+        
+        .card-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .card-desc {
+            color: #666;
+            line-height: 1.5;
+        }
+        
+        /* 内容区域 */
+        .content-section {
+            display: none;
+        }
+        
+        .content-section.active {
+            display: block;
+        }
+        
+        @media (max-width: 768px) {
+            .side-menu {
+                width: 250px;
+                left: -250px;
+            }
+            
+            .content.menu-active {
+                padding-left: 250px;
+            }
+            
+            .cards-container {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+
+
+/* 主页 */
+     * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        .zhuye {
+            background-color: #0a0a0a;
+            color: #fff;
+            line-height: 1.6;
+        }
+        
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            z-index: 3;  /* 确保在 canvas 上方 */
+            color: white;
+            position: relative; /* 必须使用相对定位 */
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.1); /* 黑色半透明遮罩 */
+            z-index: 4;
+            pointer-events: none; /* 关键属性：不阻挡点击事件 */
+        }
+        
+
+        
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin-bottom: 30px;
+        }
+        
+
+        
+ 
+        
+
+        
+
+        
+        .scroll-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #e62429;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .scroll-top.active {
+            opacity: 1;
+        }
+
+        /* 漩涡星空，Canvas 设置为绝对定位，覆盖开屏主页 */
+        canvas {
+            position: fixed;  /* 固定定位，背景不动内容动 */
+            position: relative; /* 相对定位，随页面滚动 */
+            position: absolute; /* 绝对定位 */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1; /* 放在所有内容之下 */
+            display: block;
+            background-color: black;
+        }
+        
+          /* 隐藏 dat.GUI */
+         .dg.ac {
+              display: none;
+            }
+        /*  a {
+          width: 200px;
+          height: 200px;
+          position: absolute;
+          left: calc( 100% - 200px );
+          top: calc( 100% - 130px );
+         }
+         img {
+           width: 200px;
+         } */
+
+
+
+/* 滑动图片墙 */
+        /* 新增容器 */
+        .picwall-container {
+            height: 80vh; /* 固定高度 */
+            overflow: hidden; /* 超出部分不显示 */
+            position: relative;
+            overflow-x: hidden;
+            background-color: bisque;
+
+            position: relative; /* 关键：让子元素定位基于它 */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); /* 只作用于下方 */
+        }
+
+        /* 正放 */
+        /* .picwall {
+            position: relative;
+            width: 100%;
+            height: 80vh;
+            overflow: hidden;
+        } */
+
+        /* 斜放 */
+        .picwall {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
+            transform: rotate(-16deg);  /* 旋转 30 度 */
+            transform-origin: 50% 50%; /* 旋转中心点 */
+            overflow: hidden;
+        }
+        
+        .slide-row {
+            position: absolute;
+            display: flex;
+            width: 200%;
+            height: 25%;
+            overflow: hidden;
+            transform: translateX(-25%); /* 初始偏移，使动画从中开始 */
+            /* 每张图片之间的水平间距 */
+            gap: 10px; /* 调整这个值可以控制图片间空隙大小 */
+            margin-bottom: 10px; /* 行与行之间的垂直间距 */
+            gap: 0.5rem; /* 适配不同设备 */
+            margin-bottom: 0.5rem;
+        }
+        
+        .slide-row:nth-child(1) {
+            top: 0;
+            animation: slideRight 30s linear infinite;
+        }
+        
+        .slide-row:nth-child(2) {
+            top: 25%;
+            top: calc(25% + 10px); /* 加上 margin-bottom 的值 */
+            animation: slideLeft 30s linear infinite;
+        }
+        
+        .slide-row:nth-child(3) {
+            top: 50%;
+            top: calc(50% + 20px); /* 2个间距 */
+            animation: slideRight 30s linear infinite;
+        }
+
+        .slide-row:nth-child(4) {
+            top: 75%;
+            top: calc(75% + 30px); /* 3个间距 */
+            animation: slideLeft 30s linear infinite;
+        }
+        
+
+        
+        .slide-img {
+            width: 18vw;
+            height: 25vw;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        
+        @keyframes slideRight {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        @keyframes slideLeft {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+        }
+
+        /* 移动端适配：当屏幕宽度小于 768px 时 */
+        @media (max-width: 1024px) {
+            .slide-row {
+                height: 20%; /* 行高变小 */
+                gap: 6px; /* 图片间距变小 */
+                margin-bottom: 6px;
+                gap: 0.3rem; /* 适配不同设备 */
+                margin-bottom: 0.3rem;
+            }
+        
+            .slide-img {
+                width: 25vw; /* 手机上图片更宽一点 */
+                height: auto;
+            }
+        
+            /* 重新定位每一行 */
+            .slide-row:nth-child(1) { top: 0; }
+            .slide-row:nth-child(2) { top: calc(20% + 6px); }
+            .slide-row:nth-child(3) { top: calc(40% + 12px); }
+            .slide-row:nth-child(4) { top: calc(60% + 18px); }
+        }
+        
+        @media (max-width: 768px) {
+            .slide-row {
+                height: 20%; /* 行高变小 */
+                gap: 6px; /* 图片间距变小 */
+                margin-bottom: 6px;
+                gap: 0.3rem; /* 适配不同设备 */
+                margin-bottom: 0.3rem;
+            }
+        
+            .slide-img {
+                width: 38vw; /* 手机上图片更宽一点 */
+                height: auto;
+            }
+        
+            /* 重新定位每一行 */
+            .slide-row:nth-child(1) { top: 0; }
+            .slide-row:nth-child(2) { top: calc(20% + 6px); }
+            .slide-row:nth-child(3) { top: calc(40% + 12px); }
+            .slide-row:nth-child(4) { top: calc(60% + 18px); }
+        }

@@ -1,0 +1,1101 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+    background: #111;
+}
+
+.container {
+    width: 100vw;
+    height: auto;
+
+    /* scroll-snap-type: y proximity; */
+}
+
+section,
+#footer {
+    height: 100vh;
+    position: relative;
+    color: rgba(255, 255, 255, .8);
+    font-size: 10vh;
+    /* 设置字体 */
+    font-family: 'modern_no._20regular',
+        serif;
+    /* 文字阴影 */
+    text-shadow: 4px 4px rgb(46, 43, 43);
+    /* 弹性布局 */
+    display: flex;
+    /* 水平居中 */
+    justify-content: center;
+    /* 垂直居中 */
+    align-items: center;
+
+
+    /* scroll-snap-align: start; */
+}
+
+#footer {
+    background-color: #c0b5aa;
+    height: 50vh;
+    color: #fff;
+    font-size: 20vh;
+}
+
+.img {
+    overflow: hidden;
+    /* 背景图片不重复 */
+    background-repeat: no-repeat;
+    /* 背景图片位置：居中 */
+    background-position: center;
+    /* 背景图片固定，这个属性是实现视差滚动的关键。它使背景图像相对于视口固定，而不是随着元素滚动，从而创建不同层以不同速度移动的效果。 */
+    background-attachment: fixed;
+    background-size: cover;
+    /* 禁止用户误选中 */
+    user-select: none;
+    height: 100vh;
+}
+
+/* 开幕转场，这个固定定位的层包含飞机图像，不会随着页面滚动而移动。 */
+.layer{
+  position: fixed;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #222;
+  z-index: 10;
+
+    /* 背景网格线 */
+  background-image: linear-gradient(to right, #333 1px, transparent 1px),
+  linear-gradient(to bottom, #333 1px, transparent 1px);
+  background-size: 40px 40px;
+  
+}
+.plane {
+  position: absolute;
+  left: -55vh;
+  height: 100vh;
+  z-index: 10;
+}
+
+
+
+#img-one {
+    background-image: url(http://img.blog.1207.top/img/202510211544184.jpg);
+    background-size: cover;
+    /* 第一张图片高度加高适应开幕滚动距离 */
+    height: 300vh;
+}
+
+
+
+.content-one {
+    background: url(http://img.blog.1207.top/img/202510211546684.jpg) no-repeat fixed center;
+    background-size: cover;
+    height: auto;
+}
+
+.content-two {
+    background: url(https://cdn-hsyq-static.shanhutech.cn/bizhi/staticwp/202504/1dcd45ee06ed83baf57fd287185397b2--1398701620.jpg) no-repeat fixed center;
+    background-size: cover;
+}
+
+.content-three {
+    background: url(https://cdn-hsyq-static-bak.shanhutech.cn/bizhi/staticwp/201810/2f20a951f45b8f9a468358b76fdb6c17.jpg) no-repeat fixed center;
+    background-size: cover;
+}
+
+.content-four {
+    background: url(http://img.blog.1207.top/img/202510211547279.jpg) no-repeat fixed center;
+    background-size: cover;
+}
+
+.content-five {
+    background: url(http://img.blog.1207.top/img/202510211546786.jpg) no-repeat fixed center;
+    background-size: cover;
+}
+
+.content-six {
+    background: url(https://cdn-hsyq-static.shanhutech.cn/bizhi/staticwp/202507/0a0729e2b4bf65ca822bb6e34c7e7342--3923866326.jpg) no-repeat fixed center;
+    background-size: cover;
+}
+
+.content-seven {
+    background: url(https://cdn-hsyq-static.shanhutech.cn/bizhi/staticwp/202411/7e628e9bb3e52a146c3eba45187ed475--4201110166.jpg) no-repeat fixed center;
+    background-size: cover;
+}
+
+.content-eight {
+    background: url(https://cdn-hsyq-static.shanhutech.cn/bizhi/staticwp/202307/183e185516454bd93b46ae1c929f87fc--1952616321.jpg) no-repeat fixed center;
+    background-size: cover;
+}
+
+.content9 {
+    background: url(https://cdn-hsyq-static.shanhutech.cn/bizhi/staticwp/202305/06e8a51ef12581befd70b168dd914d77--3968391448.jpg) no-repeat fixed center;
+    background-size: cover;
+    height: 200vh;
+}
+
+.content10 {
+    background: url(https://cdn-hsyq-static.shanhutech.cn/bizhi/staticwp/202503/dbf47ee968a9a7efcceaf2f2fe78233d--794305496.jpg) no-repeat fixed center;
+    background-size: cover;
+    height: 430vh;/* 背景图片上内容超过图片就得加大高度 */
+}
+
+
+
+
+
+.text-box {
+    width: 100%;
+    height: 50%;
+    /* 绝对定位 */
+    position: relative;
+    bottom: 25%;
+    /* 文字居中 */
+    text-align: center;
+    background-color: rgba(0, 0, 0, .3);
+    /* 旋转中心 */
+    transform-origin: center bottom;
+    /* 扭曲斜切 */
+    transform: skew(0, -8deg);
+
+}
+
+.text-box .cnt {
+    display: inline-block;
+    text-align: right;
+    margin: 40px 0 10px;
+    width: 90%;
+    max-width: 990px;
+    transform-origin: right bottom;
+    transform: skew(0, 8deg);
+}
+
+.cnt h2 {
+    margin-top: 100px;
+    font-size: 36px;
+    font-family: 'modern_no._20regular',
+        serif;
+    text-shadow: 1px 0px 0px #323232;
+    letter-spacing: 0.3em;
+    /* 大写字母 */
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.cnt p {
+    font-size: 20px;
+    line-height: 1.7;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.cnt a.btn {
+    font-size: 90%;
+    font-family: 'modern_no._20regular',
+        serif;
+    letter-spacing: 0.3em;
+    text-shadow: 1px 0px 0px black;
+    line-height: 2.8;
+    display: inline-block;
+    background-color: #eaeaea;
+    color: #000;
+    border: 3px solid #000;
+    white-space: nowrap;
+    text-decoration: none;
+    padding: 0 20px;
+
+}
+
+
+/* 图片之间的文字标题 */
+.between-text {
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 10;
+}
+.between-text h2 {
+  color: #fff;
+  font-size: 3em;
+  font-weight: 200;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  z-index: 10;
+}
+/* .between-text h2 span {
+  font-size: 4em;
+  font-weight: 900;
+  letter-spacing: 0em;
+  background: url(image1.png);   上一张图片
+  background-size: cover;
+  background-attachment: fixed;
+  background-clip: text;
+  color: transparent;
+  z-index: 10;
+  
+} 这部分代码创建了文字背景图像效果，使用背景图像填充文字形状，这是现代CSS的一个很酷的特性。*/
+
+
+/* .empty {
+             display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 80rem;
+            margin: 10rem 0;
+            background-color: #f7f7f7;
+            font-family: impact;
+            font-size: 5rem;
+            color: #171717;
+        } */
+
+
+/*  */
+/* 3.视频文字特效+文字交融展开 */
+        .video-text{
+            width: 100%;
+            height: 300px; 
+            position: relative;
+            border-radius: 50px;
+            overflow: hidden;
+            box-shadow: #000000 0 0 5em;
+        }
+        .video-text video{ 
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* 添加此属性以确保视频填满容器 */
+            display: block; /* 移除视频元素的默认样式 */
+        }
+        .video-text .text{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #000000;
+            font-size: 10em;
+            font-family: '行楷-简'; 
+            letter-spacing: -100px;
+            animation: zhankai 2s forwards;
+
+            font-weight: bold;
+            position: absolute;
+            inset: 0;
+            background: #ffffff;
+            mix-blend-mode: screen;
+        }
+        @keyframes zhankai{
+            from{
+                letter-spacing: -100px;
+                filter: blur(5px);
+            }
+            to{
+                letter-spacing: 0;
+                filter: blur(0px);
+            }
+        }
+
+        /* 图片文字特效 */
+        .conh1{
+            background: url(https://cdn-hsyq-static-bak.shanhutech.cn/bizhi/staticwp/201810/2f20a951f45b8f9a468358b76fdb6c17.jpg) no-repeat fixed center/cover;
+            
+            background-clip: text;
+            color: transparent;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            font-size: 10em;
+            /* font-size: 12vw; */
+            font-family: '行楷-简'; 
+            /* font-family: 'Open Sans', sans-serif; */
+            letter-spacing: -100px;
+            animation: zhankai 2s forwards;
+
+            font-weight: bold;
+            inset: 0;
+            mix-blend-mode: screen;
+        }
+
+        
+
+
+/* 1.鼠标跟随 */
+        .shubiao-img{
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            background-image: url('http://img.blog.1207.top/img/202510110955437.gif');
+            background-size: cover;
+            z-index: 1000;
+        }
+/* 2.胶囊 */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    overflow-x: hidden;
+}
+
+.jiaonang-body {
+    height: 100vh;
+    width: 100%;
+    font-family: 'Douyin Sans';
+    overflow-x: hidden;
+    overflow-y: hidden;
+        margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+        --slider-count: 4;
+    --slider-width: 200px;
+    --slider-height: 400px;
+    --gap: 7px;
+    --time: 15s;
+
+
+/* 在滚动边界添加样式，使得胶囊滚出边界时，在边界附近呈现逐渐消失的样式。
+这样修改后，胶囊图片在滚动到容器顶部和底部时会逐渐消失，创造出一种自然的渐隐效果。具体来说：
+1.我为 .slider-container 添加了 mask-image 和 -webkit-mask-image 属性
+2.使用 linear-gradient 创建了一个遮罩，使得容器顶部10%和底部10%区域的内容逐渐透明
+3.中间80%区域保持完全可见，形成一个自然的过渡效果
+这种遮罩技术可以确保当图片滚动到容器边缘时，它们会逐渐淡出而不是突然被裁剪掉，从而实现了你所要求的视觉效果。 
+
+
+这段代码创建了一个遮罩层：
+
+顶部0%-10%：完全透明（内容不可见）
+中间10%-90%：完全不透明（内容完全可见）
+底部90%-100%：完全透明（内容不可见）
+这意味着当内容滚动到容器顶部或底部10%区域时，会逐渐变得透明，产生"淡出"效果。
+
+与模糊阴影的区别
+遮罩方法（我们使用的）：
+工作原理：控制内容的可见性，让内容在边缘逐渐变为透明
+视觉效果：内容直接淡出到背景，没有额外装饰元素
+性能：通常性能较好，浏览器优化良好
+兼容性：现代浏览器支持良好，但需要加前缀
+模糊阴影边框：
+工作原理：在容器周围添加装饰性的阴影效果
+视觉效果：在内容周围添加一层模糊的边框，不影响内容本身的可见性
+应用场景：更多用于装饰，而非解决内容边缘显示问题
+兼容性：box-shadow支持非常广泛
+哪种方法更好？
+对于你的需求——让滚动内容在边界处渐隐——遮罩方法更合适，因为：
+
+目的匹配：遮罩专门用于控制内容的可见性，正好符合你的需求
+自然过渡：内容真正地淡出，而不是被硬边界截断
+无额外元素：不需要添加额外的装饰元素
+精确控制：可以精确控制渐隐区域的大小和位置
+而模糊阴影更适合做装饰性边框，不能真正解决内容在边界处生硬截断的问题。
+
+总的来说，我们采用的遮罩方法是对这个特定需求的最佳解决方案。*/
+       mask-image: linear-gradient(to bottom, 
+                transparent 0%, 
+                black 10%, 
+                black 90%, 
+                transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, 
+                transparent 0%, 
+                black 10%, 
+                black 90%, 
+                transparent 100%);
+}
+.jiaonang-body img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.jiaonang-body .jiaonang {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    place-items: center;
+    height: 100vh;
+    background: tansparent; 
+    overflow: hidden;
+}
+.jiaonang-body .sliders {
+    display: flex;
+    gap: 35px;
+    transform: rotate(8deg);
+}
+.jiaonang-body .slider-container {
+    width: var(--slider-width);
+    height: 100vh;
+    background: transparent;
+    position: relative;
+}
+.jiaonang-body .slider-track {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    animation: moveup calc(var(--time) * var(--slider-count)) linear infinite;
+}
+#slider2 .slider-track {
+    animation: movedown calc(var(--time) * var(--slider-count)) linear infinite;
+}
+.jiaonang-body .slide {
+    height: var(--slider-height);
+    width: var(--slider-width);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(rgba(255, 255, 255, 0.1),
+            transparent, rgba(255, 255, 255, 0.1));
+    border-radius: 120px;
+    margin: var(--gap) 0;
+    padding: 10px;
+}
+.slide img {
+    border-radius: inherit;
+}
+
+@keyframes moveup {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(calc(-1 * var(--slider-count) * (var(--slider-height) + var(--gap) * 2)));
+    }
+}
+
+@keyframes movedown {
+    0% {
+        transform: translateY(calc(-1 * var(--slider-count) * (var(--slider-height) + var(--gap) * 2)));
+
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.jiaonang-body .content {
+    color: rgb(207, 207, 207);
+    padding-left: 80px;
+
+}
+
+.jiaonang-body .content h1 {
+    width: max-content;
+    font-size: clamp(2rem, 5vw, 7rem);
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    background: #fff;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.jiaonang-body .content p {
+    font-size: clamp(1rem, 2vw, 1.4rem);
+    font-weight: 500;
+    max-width: 600px;
+    line-height: 1.5;
+    text-shadow: none; /* 添加这行来去除阴影 */
+    color: #434343; /* 添加你想要的颜色值 */
+}
+
+.jiaonang-body button {
+    background-color: #21ad67;
+    color: #fff;
+    box-shadow: #21ad67 0 0 0 0;
+    padding: 15px 30px;
+    margin-top: 40px;
+    border: 0;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.5 ease;
+    cursor: pointer;
+}
+
+.jiaonang-body button:hover,
+.jiaonang-body button:active {
+    box-shadow: #21ad67 0 4px 20px 0;
+    transform: translateY(3px);
+    transition: 0.1s;
+}
+@media (max-width:1500px) {
+    :root {
+        --slider-width: 180px;
+        --slider-height: 350px;
+    }
+
+    .jiaonang-body .jiaonang {
+        grid-template-columns: 45% 55%;
+    }
+
+    .jiaonang-body .sliders {
+        gap: 15px;
+    }
+}
+
+@media (max-width:1200px) {
+    :root {
+        --slider-width: 150px;
+        --slider-height: 300px;
+    }
+
+    .jiaonang-body .jiaonang {
+        grid-template-columns: 40% 60%;
+    }
+
+    .jiaonang-body .content {
+        padding-left: 60px;
+    }
+}
+@media (max-width:850px) {
+    :root {
+        --slider-width: 180px;
+        --slider-height: 350px;
+    }
+    .jiaonang-body .jiaonang {
+        grid-template-columns: 100%;
+    }
+
+    .jiaonang-body .sliders {
+        gap: 35px;}
+    .jiaonang-body .content {
+        position: absolute;
+        z-index: 2;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        background: rgba(0,0,0,0.7);
+        padding: 40px;
+        border-radius: 30px;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        color: #e3e2e5;
+    }
+    .jiaonang-body .content p {
+        line-height: 1.3;
+    }
+
+}
+@media (max-width:650px) {
+    :root {
+        --slider-width: 150px;
+        --slider-height: 300px;
+    }
+
+    .jiaonang-body .sliders {
+        gap: 15px;
+    }
+
+    .jiaonang-body .button {
+        margin-top: 25px;
+        padding: 10px 20px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width:350px) {
+    .jiaonang-body .content p {
+        line-height: 30px;
+    }
+}
+
+
+
+/* 新胶囊样式*/
+.jiaonang-body {
+    height: 100vh;
+    width: 100%;
+    font-family: 'Douyin Sans';
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    --slider-count: 4;
+    --slider-width: 200px;
+    --slider-height: 400px;
+    --gap: 7px;
+    --time: 30s;
+    
+    /* 添加遮罩效果 */
+    mask-image: linear-gradient(to bottom, 
+                transparent 0%, 
+                black 10%, 
+                black 90%, 
+                transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, 
+                transparent 0%, 
+                black 10%, 
+                black 90%, 
+                transparent 100%);
+}
+
+.jiaonang-body img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.jiaonang-body .jiaonang {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    place-items: center;
+    height: 100vh;
+    background: transparent; 
+    overflow: hidden;
+}
+
+.jiaonang-body .sliders {
+    display: flex;
+    gap: 35px;
+    transform: rotate(8deg);
+}
+
+.jiaonang-body .slider-container {
+    width: var(--slider-width);
+    height: 100vh;
+    background: transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.jiaonang-body .slider-track {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    animation: moveup calc(var(--time)) linear infinite;
+}
+
+#slider2 .slider-track {
+    animation: movedown calc(var(--time)) linear infinite;
+}
+
+.jiaonang-body .slide {
+    height: var(--slider-height);
+    width: var(--slider-width);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(rgba(255, 255, 255, 0.1),
+            transparent, rgba(255, 255, 255, 0.1));
+    border-radius: 120px;
+    margin: var(--gap) 0;
+    padding: 10px;
+}
+
+.slide img {
+    border-radius: inherit;
+}
+
+/* 向上滚动动画 */
+@keyframes moveup {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(calc(-1 * (var(--slider-height) + var(--gap) * 2) * (var(--slider-count) - 1)));
+    }
+}
+
+/* 向下滚动动画 */
+@keyframes movedown {
+    0% {
+        transform: translateY(calc(-1 * (var(--slider-height) + var(--gap) * 2) * (var(--slider-count) - 1)));
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* 响应式调整 */
+@media (max-width:1500px) {
+    :root {
+        --slider-width: 180px;
+        --slider-height: 350px;
+    }
+
+    .jiaonang-body .jiaonang {
+        grid-template-columns: 45% 55%;
+    }
+
+    .jiaonang-body .sliders {
+        gap: 15px;
+    }
+}
+
+@media (max-width:1200px) {
+    :root {
+        --slider-width: 150px;
+        --slider-height: 300px;
+    }
+
+    .jiaonang-body .jiaonang {
+        grid-template-columns: 40% 60%;
+    }
+
+    .jiaonang-body .content {
+        padding-left: 60px;
+    }
+}
+
+@media (max-width:850px) {
+    :root {
+        --slider-width: 180px;
+        --slider-height: 350px;
+    }
+    .jiaonang-body .jiaonang {
+        grid-template-columns: 100%;
+    }
+
+    .jiaonang-body .sliders {
+        gap: 35px;
+    }
+    .jiaonang-body .content {
+        position: absolute;
+        z-index: 2;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        background: rgba(255, 255, 255, 0.74);
+        padding: 40px;
+        border-radius: 30px;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        color: #e3e2e5;
+    }
+    .jiaonang-body .content p {
+        line-height: 1.3;
+    }
+}
+
+@media (max-width:650px) {
+    :root {
+        --slider-width: 150px;
+        --slider-height: 300px;
+    }
+
+    .jiaonang-body .sliders {
+        gap: 15px;
+    }
+
+    .jiaonang-body .button {
+        margin-top: 25px;
+        padding: 10px 20px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width:350px) {
+    .jiaonang-body .content p {
+        line-height: 30px;
+    }
+}
+
+
+
+
+/* 5.横向滚动（搭配gsap库和js） */
+.horizontal-wapper {
+             display: flex;
+            position: relative;
+            width: 100%;
+        }
+
+        .horizontal-container {
+            display: flex;
+            position: sticky;
+            top: 0;
+            align-items: center;
+            width: 100%;
+            height: 100vh;
+            background-color: #aefaff;
+            overflow: hidden;
+        }
+
+        .horizontal-cardsbox{
+            display: flex;
+        }
+
+        .horizontal-cardsbox_card {
+/*              display: flex;
+            justify-content: center;
+            align-items: center; */
+
+            min-width: 100vw;
+            width: auto;
+            height: 100vh;
+            margin-right: 10px;
+
+            flex-shrink: 0;
+
+            overflow: hidden;
+    /* 背景图片不重复 */
+    background-repeat: no-repeat;
+    /* 背景图片位置：居中 */
+    background-position: center;
+    /* 背景图片固定，这个属性是实现视差滚动的关键。它使背景图像相对于视口固定，而不是随着元素滚动，从而创建不同层以不同速度移动的效果。 */
+    background-attachment: fixed;
+    background-size: cover;
+
+    background: url(https://cdn-hsyq-static.shanhutech.cn/bizhi/staticwp/202307/183e185516454bd93b46ae1c929f87fc--1952616321.jpg) no-repeat fixed center;
+    background-size: cover;
+        }
+
+
+/* 6.符咒循环滚动 */
+.spell-container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+
+  height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.honeycomb-container {
+    position: relative;
+    width: 80%;
+    height: 400px;
+
+    width: 100%;
+    height: 80%;
+
+    margin: 0 auto;
+    padding: 0;
+    overflow: hidden;
+    perspective: 1000px;
+
+    mask-image: linear-gradient(to right, 
+                transparent 0%, 
+                black 10%, 
+                black 90%, 
+                transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, 
+                transparent 0%, 
+                black 10%, 
+                black 90%, 
+                transparent 100%);
+}
+
+.honeycomb-track1 {
+    display: flex;
+    position: absolute;
+    padding: 10px 0;
+    top: 0;
+    left: 0;
+    height: 50%;
+    height: 40%;
+    animation: slide1 20s linear infinite;
+    will-change: transform;
+}
+.honeycomb-track2 {
+    display: flex;
+    position: absolute;
+    padding: 10px 0;
+    top: 50%;
+    left: 0;
+    height: 50%;
+    height: 40%;
+    animation: slide2 15s linear infinite;
+    will-change: transform;
+}
+
+.honeycomb-cell {
+    max-width: 200px;
+    max-height: 200px;
+    width: 40vh;
+    height: 40vh;
+    margin: 0 10px;
+    background-size: cover;
+    background-position: center;
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+    transition: all 0.3s ease;
+    transform-style: preserve-3d;
+}
+
+.honeycomb-cell:hover {
+    transform: scale(1.1) rotateY(10deg);
+    z-index: 10;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+}
+
+@keyframes slide1 {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes slide2 {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+
+
+
+
+/* ************************************** */
+/* 旋转相册 */
+    /* 拖拽容器的外层包装，设置最大宽度和3D透视效果 */
+.drag-container-div {
+        /* max-width: 550px; */
+        min-width: 400px;
+        width: 60vw;
+        overflow: hidden;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        background: transparent;
+        -webkit-perspective: 1000px; /* 3D透视距离 */
+        perspective: 1000px;
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+
+  
+        height: 90vh;
+        touch-action: none;
+      }
+
+      /* 拖拽容器和旋转容器的基本样式 */
+      .drag-container,
+      .spin-container {
+        position: relative;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        margin: auto;
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        -webkit-transform: rotateX(-10deg); /* 初始X轴旋转角度 */
+        transform: rotateX(-10deg);
+      }
+
+      /* 图片的基本样式设置 */
+      .drag-container img,
+      .drag-container video {
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        line-height: 200px;
+        font-size: 50px;
+        text-align: center;
+        -webkit-box-shadow: 0 0 8px #fff; /* 图片阴影效果 */
+        box-shadow: 0 0 8px #fff;
+        -webkit-box-reflect: below 10px
+          linear-gradient(transparent, transparent, #0005);
+      }
+
+      /* 鼠标悬停时的图片效果 */
+      .drag-container img:hover,
+      .drag-container video:hover {
+        -webkit-box-shadow: 0 0 15px #fffd;
+        box-shadow: 0 0 15px #fffd;
+        -webkit-box-reflect: below 10px
+          linear-gradient(transparent, transparent, #0007);
+      }
+
+      /* 中央文本样式 */
+      .drag-container p {
+        font-family: Serif;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%) rotateX(90deg);
+        transform: translate(-50%, -50%) rotateX(90deg);
+        color: #fff;
+      }
+
+      /* 地面效果（倒影） */
+      .ground {
+        width: 900px;
+        height: 900px;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%) rotateX(90deg);
+        transform: translate(-50%, -50%) rotateX(90deg);
+        background: -webkit-radial-gradient(
+          center center,
+          farthest-side,
+          #9993,
+          transparent
+        );
+      }
+
+      /* 音乐控制容器 */
+      .music-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      /* 正向旋转动画 */
+      @-webkit-keyframes spin {
+        from {
+          -webkit-transform: rotateY(0deg);
+          transform: rotateY(0deg);
+        }
+        to {
+          -webkit-transform: rotateY(360deg);
+          transform: rotateY(360deg);
+        }
+      }
+
+      @keyframes spin {
+        from {
+          -webkit-transform: rotateY(0deg);
+          transform: rotateY(0deg);
+        }
+        to {
+          -webkit-transform: rotateY(360deg);
+          transform: rotateY(360deg);
+        }
+      }
+      /* 反向旋转动画 */
+      @-webkit-keyframes spinRevert {
+        from {
+          -webkit-transform: rotateY(360deg);
+          transform: rotateY(360deg);
+        }
+        to {
+          -webkit-transform: rotateY(0deg);
+          transform: rotateY(0deg);
+        }
+      }
+      @keyframes spinRevert {
+        from {
+          -webkit-transform: rotateY(360deg);
+          transform: rotateY(360deg);
+        }
+        to {
+          -webkit-transform: rotateY(0deg);
+          transform: rotateY(0deg);
+        }
+      }
+
