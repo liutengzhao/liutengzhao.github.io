@@ -1,0 +1,309 @@
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        body {
+            min-height: 100vh;
+            position: relative;
+            font-family: Arial, sans-serif;
+        }
+
+
+        /* 视频背景样式 */
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2; /* 确保视频在所有内容后面 */
+            overflow: hidden;
+        }
+
+        .background-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            z-index: -2;
+        }
+
+        /* 内容遮罩层（可选，提高可读性） */
+        .content-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.3); /* 半透明黑色遮罩 */
+            z-index: -1;
+        }
+/* ========================================== */
+/* 1.瀑布流布局 */
+             .pubuliu{
+            display: flex;
+            justify-content: center;
+            position: relative;
+            top: 20px;
+            height: auto;
+        }
+        .shell{
+            max-width: 1300px;
+            column-count: 5;
+            column-gap: 15px;
+        }
+        .image{
+            margin-bottom: 15px;
+        }
+        .image img{
+            width: 100%;
+        }
+        @media (max-width:1200px){
+            .shell{
+                column-count: 4;
+            }
+        }
+        @media (max-width:850px){
+            .shell{
+                column-count: 3;
+            }
+        }
+        @media (max-width:600px){
+            .shell{
+                column-count: 2;
+            }
+        }
+
+/* ============================================== */
+/* 2.创建网格布局父容器 */
+        .grid-shell{
+            /* 先设置网格布局 */
+            display: grid;
+            padding: 20px;
+            /* 定义网格布局中行与列之间间隙的尺寸 */
+            grid-gap: 20px;
+            /* 设置响应列宽，并自动填充列数 */
+            grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+            /* 设置默认行高 */
+            grid-auto-rows: 220px;
+            /* 属性控制自动放置项目在网格中的插入方式为填充 */
+            grid-auto-flow: dense;
+            position: relative;
+            top: 20px;
+        }
+
+        .grid-shell .wide{
+            grid-column: span 2;/* 跨越2列 */
+        }
+        .grid-shell .tall{
+            grid-row: span 2;/* 跨越2行 */
+        }
+        .grid-shell .big{
+            grid-column: span 2;/* 跨越2列 */
+            grid-row: span 2;/* 跨越2行 */
+        }
+
+        /* 添加媒体查询 */
+        @media (max-width: 600px) {
+            .grid-shell {
+                grid-template-columns: 1fr;
+            }
+            
+            /* 可选：在小屏幕上移除所有跨越效果 */
+            .grid-shell .wide,
+            .grid-shell .tall,
+            .grid-shell .big {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+        }
+
+
+        /* 内容样式 */
+        .grid-shell .grid-box{
+            background-color: rgb(106, 255, 238);
+            display: flex; /* 弹性布局，脱离block和inline，默认横向排列（row） */
+            flex-direction: column; /* 纵向排列 */
+            /* justify-content: center; */ /* 在主轴(排列轴)居中 */
+            /* align-items: center; */ /* 在次轴(交叉轴)居中 */
+            border-radius: 5px;
+            position: relative;
+            overflow: auto; /* 如果内容有超出部分自动设置滚动条 */
+        }
+        .grid-box span{
+            color: #232323;
+            font: 100 100px 'Kristen ITC';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            /* 给文字加个阴影 */
+            text-shadow: -5px 0 rgb(0, 0, 0), 0 -5px rgb(0, 0, 0),5px 0 rgb(0, 0, 0),0 5px rgb(0, 0, 0);
+
+            display: none; /* 隐藏掉 */
+        }
+        .grid-box .box-title{
+            color: #2a2a2a;
+            font: 100 20px 'Kristen ITC';
+            margin: 10px;
+        }
+        .grid-box .box-text{
+            color: #1b1b1b;
+            margin: 10px;
+        }
+        .grid-box img {
+            width: 100%;
+            height: 100%;
+            vertical-align: middle;
+            display: inline-block;
+        }
+        
+
+
+/* ************************************** */
+/* 旋转相册 */
+    /* 拖拽容器的外层包装，设置最大宽度和3D透视效果 */
+#drag-container-div {
+        /* max-width: 550px; */
+        width: 100vw;
+        overflow: hidden;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        background: transparent;
+        -webkit-perspective: 1000px; /* 3D透视距离 */
+        perspective: 1000px;
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+
+  
+        height: 90vh;
+        touch-action: none;
+      }
+
+      /* 拖拽容器和旋转容器的基本样式 */
+      #drag-container,
+      #spin-container {
+        position: relative;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        margin: auto;
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        -webkit-transform: rotateX(-10deg); /* 初始X轴旋转角度 */
+        transform: rotateX(-10deg);
+      }
+
+      /* 图片的基本样式设置 */
+      #drag-container img,
+      #drag-container video {
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        line-height: 200px;
+        font-size: 50px;
+        text-align: center;
+        -webkit-box-shadow: 0 0 8px #fff; /* 图片阴影效果 */
+        box-shadow: 0 0 8px #fff;
+        -webkit-box-reflect: below 10px
+          linear-gradient(transparent, transparent, #0005);
+      }
+
+      /* 鼠标悬停时的图片效果 */
+      #drag-container img:hover,
+      #drag-container video:hover {
+        -webkit-box-shadow: 0 0 15px #fffd;
+        box-shadow: 0 0 15px #fffd;
+        -webkit-box-reflect: below 10px
+          linear-gradient(transparent, transparent, #0007);
+      }
+
+      /* 中央文本样式 */
+      #drag-container p {
+        font-family: Serif;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%) rotateX(90deg);
+        transform: translate(-50%, -50%) rotateX(90deg);
+        color: #fff;
+      }
+
+      /* 地面效果（倒影） */
+      #ground {
+        width: 900px;
+        height: 900px;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%) rotateX(90deg);
+        transform: translate(-50%, -50%) rotateX(90deg);
+        background: -webkit-radial-gradient(
+          center center,
+          farthest-side,
+          #9993,
+          transparent
+        );
+      }
+
+      /* 音乐控制容器 */
+      #music-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      /* 正向旋转动画 */
+      @-webkit-keyframes spin {
+        from {
+          -webkit-transform: rotateY(0deg);
+          transform: rotateY(0deg);
+        }
+        to {
+          -webkit-transform: rotateY(360deg);
+          transform: rotateY(360deg);
+        }
+      }
+
+      @keyframes spin {
+        from {
+          -webkit-transform: rotateY(0deg);
+          transform: rotateY(0deg);
+        }
+        to {
+          -webkit-transform: rotateY(360deg);
+          transform: rotateY(360deg);
+        }
+      }
+      /* 反向旋转动画 */
+      @-webkit-keyframes spinRevert {
+        from {
+          -webkit-transform: rotateY(360deg);
+          transform: rotateY(360deg);
+        }
+        to {
+          -webkit-transform: rotateY(0deg);
+          transform: rotateY(0deg);
+        }
+      }
+      @keyframes spinRevert {
+        from {
+          -webkit-transform: rotateY(360deg);
+          transform: rotateY(360deg);
+        }
+        to {
+          -webkit-transform: rotateY(0deg);
+          transform: rotateY(0deg);
+        }
+      }

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>相册</title>
+    <link rel="icon" href="./img/枫叶.png" type="image/png">
+    <!-- Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+<link rel="stylesheet" href="./caidanlan.css">
+<script src="https://public.codepenassets.com/js/prefixfree-1.0.7.min.js"></script>
+
+
+
+
+
+
+</head>
+<body>
+    <!-- 主页按钮 -->
+    <!-- <div class="home-toggle">
+        <span class="home-icon"><i class="fa-solid fa-house fa-2xl" style="color: #ffffff;"></i></span>
+    </div> -->
+    <div class="home-toggle">
+        <span class="home-icon"><i class="fa-solid fa-house fa-2xl" style="color: #ff4747;"></i></span>
+    </div>
+    <!-- 菜单/关闭按钮 -->
+    <div class="menu-toggle">
+        <span class="menu-icon"></span>
+    </div>
+    
+    <!-- 侧边菜单 -->
+    <div class="side-menu">
+        <div class="menu-item" data-target="home">首页</div>
+        <div class="menu-item" data-target="about">海贼王</div>
+        <div class="menu-item" data-target="works">崩坏三</div>
+        <div class="menu-item" data-target="blog">赛马娘</div>
+        <div class="menu-item" data-target="contact">ACG</div>
+    </div>
+    
+    <!-- 内容区域 -->
+    <div class="content">
+        <!-- 首页内容 -->
+        <div class="content-section active" id="home">
+           <!--  <div class="wallpaper" style="background: linear-gradient(45deg, #ff9900, #ff3366);">
+                <h1>首页</h1>
+                 <div class="tilted-box" style="background-color: #7cff76;">
+                     <span>首页</span>
+                 </div>
+            </div> -->
+
+
+
+            <!-- 主页 -->
+            <div class="zhuye">
+            <canvas id=c></canvas>
+            <div class="hero">
+                <h1>相册空间</h1>
+                <p>留下深刻印记的故事...</p>
+            </div>
+            
+
+            
+
+            
+            <!-- <div class="scroll-top" id="scrollTop">↑</div> -->
+            </div>
+           
+        </div>
+        
+    <!-- 海贼王内容 -->
+        <div class="content-section" id="about">
+            <div class="wallpaper" style="background-image: url('http://img.blog.1207.top/img/202506261950914.jpg');">
+                <div class="overlay" style="background: rgba(0, 0, 0, 0.3);"></div>
+                <!-- <h1>海贼王</h1> -->
+                 <div class="tilted-box" style="background-color: #ff3333;">
+                     <span>海贼王</span>
+                 </div>
+            </div>
+            <div class="cards-container" style="background: linear-gradient(45deg, #ff3333, #ff9966);">
+                <div class="card">
+                    <div class="card-img-container">
+                        <a href="./cards/card-op-vol/index.html" class="image-link" target="_blank" rel="noopener noreferrer"></a>
+                        <img src="http://img.blog.1207.top/img/202503301849531.webp" alt="项目图片" class="card-img">
+                        <div class="card-img-overlay">
+                            <div class="card-img-text">查看更多 > ></div>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">单行本</h3>
+                        <p class="card-desc">OnePiece单行本封面</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img-container">
+                        <a href="./cards/card-op-cp/index.html" class="image-link" target="_blank" rel="noopener noreferrer"></a>
+                        <img src="http://img.blog.1207.top/img/202503302036916.webp" alt="项目图片" class="card-img">
+                        <div class="card-img-overlay">
+                            <div class="card-img-text">查看更多 > ></div>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">彩绘</h3>
+                        <p class="card-desc">OnePiece彩绘插画</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img-container">
+                        <a href="./cards/card-op-mv/index.html" class="image-link" target="_blank" rel="noopener noreferrer"></a>
+                        <img src="http://img.blog.1207.top/img/202510232248358.jpg" alt="项目图片" class="card-img">
+                        <div class="card-img-overlay">
+                            <div class="card-img-text">查看更多 > ></div>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">剧场版</h3>
+                        <p class="card-desc">OnePiece剧场版海报</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    <!-- 崩坏三内容 -->
+        <div class="content-section" id="works">
+            <div class="wallpaper" style="background-image: url('http://img.blog.1207.top/img/202503291042020.png');">
+                <div class="overlay" style="background: rgba(0, 0, 0, 0.2);"></div>
+                <!-- <h1>崩坏三</h1> -->
+                 <div class="tilted-box" style="background-color: #7cff76;">
+                     <span>崩坏三</span>
+                 </div>
+            </div>
+            <div class="cards-container" style="background: linear-gradient(45deg, #33cc33, #99ff33);">
+                <div class="card">
+                    <div class="card-img-container">
+                        <a href="./cards/card-bbb-anniv/index.html" class="image-link" target="_blank" rel="noopener noreferrer"></a>
+                        <img src="http://img.blog.1207.top/img/202503291234310.webp" alt="项目图片" class="card-img">
+                        <div class="card-img-overlay">
+                            <div class="card-img-text">查看更多 > ></div>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">周年版本</h3>
+                        <p class="card-desc">崩坏三版本周年纪念</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img-container">
+                        <a href="./cards/card-bbb-stg/index.html" class="image-link" target="_blank" rel="noopener noreferrer"></a>
+                        <img src="http://img.blog.1207.top/img/202506262010845.jpeg" alt="项目图片" class="card-img">
+                        <div class="card-img-overlay">
+                            <div class="card-img-text">查看更多 > ></div>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">圣痕</h3>
+                        <p class="card-desc">崩坏三圣痕</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img-container">
+                        <a href="./cards/card-bbb-role/index.html" class="image-link" target="_blank" rel="noopener noreferrer"></a>
+                        <img src="http://img.blog.1207.top/img/202503291046024.png" alt="项目图片" class="card-img">
+                        <div class="card-img-overlay">
+                            <div class="card-img-text">查看更多 > ></div>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">角色</h3>
+                        <p class="card-desc">崩坏三角色立绘</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img-container">
+                        <a href="./cards/card-bbb-engraving/index.html" class="image-link" target="_blank" rel="noopener noreferrer"></a>
+                        <img src="http://img.blog.1207.top/img/202510232248150.jpg" alt="" class="card-img">
+                        <div class="card-img-overlay">
+                            <div class="card-img-text">查看更多 > ></div>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">刻印</h3>
+                        <p class="card-desc">崩坏三逐火十三英桀</p>
+                    </div>
+                </div>
+              
+             
+            </div>
+        </div>
+        
+    <!-- 赛马娘内容 -->
+        <div class="content-section" id="blog">
+         <!--    <div class="wallpaper" style="background: linear-gradient(45deg, #33cc33, #99ff33);">
+                <h1>赛马娘</h1>
+                 <div class="tilted-box">
+                     <span>赛马娘</span>
+                 </div>
+            </div> -->
+
+            <div class="picwall-container">
+              <div class="picwall">
+                <div class="slide-row">
+                    <img src="https://i1.hdslb.com/bfs/article/256884252b781028a151fa757e02bf7b1fd604c2.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/907540bb40fbabeb2c69f0cfe13aa1e8077c70b3.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/f95069b35b47ff777b20f30ef1400fb784a5627b.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/b2c47653312f10471a2166c0a69f29ac52412bad.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/d4f203bbcfed226e786c0d4ad084e969dfb11713.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/7420dceb1dc29ff8c9a3ffdce0708d1bdb07413c.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/0fe9306535024ae18d5e141c769d84af93607792.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/2b4d4a54f07a8ad8e01e73ae1dbd3bb9b169aec4.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/dea84102941fffc4d9527b754d0840578c8c240a.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/d6ee58f25d6e277aa8bb76fd1fbffdd6370547a8.png@1192w.avif" class="slide-img">
+        
+        
+                    <img src="https://i1.hdslb.com/bfs/article/256884252b781028a151fa757e02bf7b1fd604c2.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/907540bb40fbabeb2c69f0cfe13aa1e8077c70b3.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/f95069b35b47ff777b20f30ef1400fb784a5627b.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/b2c47653312f10471a2166c0a69f29ac52412bad.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/d4f203bbcfed226e786c0d4ad084e969dfb11713.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/7420dceb1dc29ff8c9a3ffdce0708d1bdb07413c.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/0fe9306535024ae18d5e141c769d84af93607792.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/2b4d4a54f07a8ad8e01e73ae1dbd3bb9b169aec4.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/dea84102941fffc4d9527b754d0840578c8c240a.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/d6ee58f25d6e277aa8bb76fd1fbffdd6370547a8.png@1192w.avif" class="slide-img">
+            
+                </div>
+                <div class="slide-row">
+                    <img src="https://i1.hdslb.com/bfs/article/256884252b781028a151fa757e02bf7b1fd604c2.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/907540bb40fbabeb2c69f0cfe13aa1e8077c70b3.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/f95069b35b47ff777b20f30ef1400fb784a5627b.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/b2c47653312f10471a2166c0a69f29ac52412bad.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/d4f203bbcfed226e786c0d4ad084e969dfb11713.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/7420dceb1dc29ff8c9a3ffdce0708d1bdb07413c.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/0fe9306535024ae18d5e141c769d84af93607792.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/2b4d4a54f07a8ad8e01e73ae1dbd3bb9b169aec4.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/dea84102941fffc4d9527b754d0840578c8c240a.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/d6ee58f25d6e277aa8bb76fd1fbffdd6370547a8.png@1192w.avif" class="slide-img">
+        
+        
+                    <img src="https://i1.hdslb.com/bfs/article/256884252b781028a151fa757e02bf7b1fd604c2.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/907540bb40fbabeb2c69f0cfe13aa1e8077c70b3.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/f95069b35b47ff777b20f30ef1400fb784a5627b.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/b2c47653312f10471a2166c0a69f29ac52412bad.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/d4f203bbcfed226e786c0d4ad084e969dfb11713.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/7420dceb1dc29ff8c9a3ffdce0708d1bdb07413c.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/0fe9306535024ae18d5e141c769d84af93607792.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/2b4d4a54f07a8ad8e01e73ae1dbd3bb9b169aec4.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/dea84102941fffc4d9527b754d0840578c8c240a.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/d6ee58f25d6e277aa8bb76fd1fbffdd6370547a8.png@1192w.avif" class="slide-img">
+                </div>
+                <div class="slide-row">
+                     <img src="https://i1.hdslb.com/bfs/article/256884252b781028a151fa757e02bf7b1fd604c2.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/907540bb40fbabeb2c69f0cfe13aa1e8077c70b3.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/f95069b35b47ff777b20f30ef1400fb784a5627b.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/b2c47653312f10471a2166c0a69f29ac52412bad.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/d4f203bbcfed226e786c0d4ad084e969dfb11713.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/7420dceb1dc29ff8c9a3ffdce0708d1bdb07413c.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/0fe9306535024ae18d5e141c769d84af93607792.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/2b4d4a54f07a8ad8e01e73ae1dbd3bb9b169aec4.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/dea84102941fffc4d9527b754d0840578c8c240a.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/d6ee58f25d6e277aa8bb76fd1fbffdd6370547a8.png@1192w.avif" class="slide-img">
+        
+        
+                    <img src="https://i1.hdslb.com/bfs/article/256884252b781028a151fa757e02bf7b1fd604c2.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/907540bb40fbabeb2c69f0cfe13aa1e8077c70b3.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/f95069b35b47ff777b20f30ef1400fb784a5627b.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/b2c47653312f10471a2166c0a69f29ac52412bad.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/d4f203bbcfed226e786c0d4ad084e969dfb11713.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/7420dceb1dc29ff8c9a3ffdce0708d1bdb07413c.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/0fe9306535024ae18d5e141c769d84af93607792.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/2b4d4a54f07a8ad8e01e73ae1dbd3bb9b169aec4.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/dea84102941fffc4d9527b754d0840578c8c240a.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/d6ee58f25d6e277aa8bb76fd1fbffdd6370547a8.png@1192w.avif" class="slide-img">
+                </div>
+                <div class="slide-row">
+                    <img src="https://i1.hdslb.com/bfs/article/256884252b781028a151fa757e02bf7b1fd604c2.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/907540bb40fbabeb2c69f0cfe13aa1e8077c70b3.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/f95069b35b47ff777b20f30ef1400fb784a5627b.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/b2c47653312f10471a2166c0a69f29ac52412bad.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/d4f203bbcfed226e786c0d4ad084e969dfb11713.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/7420dceb1dc29ff8c9a3ffdce0708d1bdb07413c.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/0fe9306535024ae18d5e141c769d84af93607792.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/2b4d4a54f07a8ad8e01e73ae1dbd3bb9b169aec4.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/dea84102941fffc4d9527b754d0840578c8c240a.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/d6ee58f25d6e277aa8bb76fd1fbffdd6370547a8.png@1192w.avif" class="slide-img">
+        
+        
+                    <img src="https://i1.hdslb.com/bfs/article/256884252b781028a151fa757e02bf7b1fd604c2.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/907540bb40fbabeb2c69f0cfe13aa1e8077c70b3.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/f95069b35b47ff777b20f30ef1400fb784a5627b.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/b2c47653312f10471a2166c0a69f29ac52412bad.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/d4f203bbcfed226e786c0d4ad084e969dfb11713.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/7420dceb1dc29ff8c9a3ffdce0708d1bdb07413c.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/0fe9306535024ae18d5e141c769d84af93607792.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/2b4d4a54f07a8ad8e01e73ae1dbd3bb9b169aec4.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/dea84102941fffc4d9527b754d0840578c8c240a.png@1192w.avif" class="slide-img">
+                    <img src="https://i1.hdslb.com/bfs/article/d6ee58f25d6e277aa8bb76fd1fbffdd6370547a8.png@1192w.avif" class="slide-img">
+                </div>
+              </div>
+              <div class="tilted-box">
+                     <span>赛马娘</span>
+              </div>
+            </div>
+
+            <!-- 内容区 -->
+            <div class="cards-container" style="background-color: bisque;">
+                <div class="card">
+                    <div class="card-img-container">
+                        <a href="./cards/card-pd-card/index.html" class="image-link" target="_blank" rel="noopener noreferrer"></a>
+                        <img src="http://img.blog.1207.top/img/202506262033863.jpeg" alt="项目图片" class="card-img">
+                        <div class="card-img-overlay">
+                            <div class="card-img-text">查看更多 > ></div>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">支援卡</h3>
+                        <p class="card-desc">赛马娘支援卡<!-- 宣告比赛开始的号角已然吹响，观众席沸腾的欢呼震动大地。此刻，新时代的帷幕正徐徐拉开。众人瞩目的比赛，现在开始！ -->‌</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img-container">
+                        <a href="./cards/card-pd-role/index.html" class="image-link" target="_blank" rel="noopener noreferrer"></a>
+                        <img src="http://img.blog.1207.top/img/202510232258653.jpeg" alt="项目图片" class="card-img">
+                        <div class="card-img-overlay">
+                            <div class="card-img-text">查看更多 > ></div>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">马娘</h3>
+                        <p class="card-desc">赛马娘角色<!-- 追逐梦想的身姿，即为赛马娘。承载历史与希望，于赛场与舞台之上，绝不认输。 -->‌</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    <!-- ACG内容 -->
+        <div class="content-section" id="contact">
+            <div class="wallpaper" style="background-image: url('http://img.blog.1207.top/img/202507062040956.jpg');">
+                <div class="overlay" style="background: rgba(0, 0, 0, 0.2);"></div>
+                 <div class="tilted-box" style="background-color: #ae70fe;">
+                     <span>ACG</span>
+                 </div>
+            </div>
+            <div class="cards-container" style="background: linear-gradient(45deg, #9933ff, #ff33cc);">
+                <div class="card">
+                    <div class="card-img-container">
+                        <a href="./cards/card-acg-MK/index.html" class="image-link" target="_blank" rel="noopener noreferrer"></a>
+                        <img src="http://img.blog.1207.top/img/202507062039510.png" alt="项目图片" class="card-img">
+                        <div class="card-img-overlay">
+                            <div class="card-img-text">查看更多 > ></div>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">模型</h3>
+                        <p class="card-desc">拼装模型</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img-container">
+                        <a href="./cards/card-acg-PF/index.html" class="image-link" target="_blank" rel="noopener noreferrer"></a>
+                        <img src="http://img.blog.1207.top/img/202507062044901.png" alt="项目图片" class="card-img">
+                        <div class="card-img-overlay">
+                            <div class="card-img-text">查看更多 > ></div>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">手办</h3>
+                        <p class="card-desc">手办</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img-container">
+                        <a href="./cards/card-acg-more/index.html" class="image-link" target="_blank" rel="noopener noreferrer"></a>
+                        <img src="http://img.blog.1207.top/img/202510232307886.jpg" alt="项目图片" class="card-img">
+                        <div class="card-img-overlay">
+                            <div class="card-img-text">查看更多 > ></div>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">二次元</h3>
+                        <p class="card-desc">二次元</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+<script  src="./js/encryption.js"></script>
+
+<!-- 菜单栏 -->
+    <script  src="./caidanlan.js"></script>
+<!-- 罪恶城主页 -->
+    <!-- 滚动至最上 -->
+    <script  src="./gundong.js"></script>
+    <!-- 七彩旋涡星空 -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.5.1/dat.gui.min.js'></script>
+    <script  src="./qicaixingkong.js"></script>
+
+<!-- zhuye页面跳转过来 -->
+      <script  src="./tiaozhuan.js"></script>
+
+
+
+</body>
+</html>

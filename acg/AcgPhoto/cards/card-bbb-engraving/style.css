@@ -1,0 +1,188 @@
+       * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        body {
+    /* 背景图片不重复 */
+    background-repeat: no-repeat;
+    /* 背景图片位置：居中 */
+    background-position: center;
+    /* 背景图片固定，这个属性是实现视差滚动的关键。它使背景图像相对于视口固定，而不是随着元素滚动，从而创建不同层以不同速度移动的效果。 */
+    background-attachment: fixed;
+    background-size: cover;
+    /* 禁止用户误选中 */
+    user-select: none;
+    height: 300vh;
+
+     background: url(http://img.blog.1207.top/img/202510241520170.jpg) no-repeat  center;
+    background-size: cover;
+        }
+
+
+@media (max-width:780px) {
+    body {
+        /* 背景图片不重复 */
+    background-repeat: no-repeat;
+    /* 背景图片位置：居中 */
+    background-position: center;
+    /* 背景图片固定，这个属性是实现视差滚动的关键。它使背景图像相对于视口固定，而不是随着元素滚动，从而创建不同层以不同速度移动的效果。 */
+    background-attachment: fixed;
+    background-size: cover;
+    /* 禁止用户误选中 */
+    user-select: none;
+    height: 300vh;
+
+     background: url(http://img.blog.1207.top/img/202510241520170.jpg) no-repeat fixed center;
+    background-size: cover;
+    }
+}
+
+
+
+
+/* ************************************** */
+/* 旋转相册 */
+    /* 拖拽容器的外层包装，设置最大宽度和3D透视效果 */
+.drag-container-div {
+        /* max-width: 550px; */
+        min-width: 400px;
+        width: 60vw;
+        overflow: hidden;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        background: transparent;
+        -webkit-perspective: 1000px; /* 3D透视距离 */
+        perspective: 1000px;
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+
+  
+        height: 90vh;
+        touch-action: none;
+      }
+
+      /* 拖拽容器和旋转容器的基本样式 */
+      .drag-container,
+      .spin-container {
+        position: relative;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        margin: auto;
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        -webkit-transform: rotateX(-10deg); /* 初始X轴旋转角度 */
+        transform: rotateX(-10deg);
+      }
+
+      /* 图片的基本样式设置 */
+      .drag-container img,
+      .drag-container video {
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        line-height: 200px;
+        font-size: 50px;
+        text-align: center;
+        -webkit-box-shadow: 0 0 8px #fff; /* 图片阴影效果 */
+        box-shadow: 0 0 8px #fff;
+        -webkit-box-reflect: below 10px
+          linear-gradient(transparent, transparent, #0005);
+      }
+
+      /* 鼠标悬停时的图片效果 */
+      .drag-container img:hover,
+      .drag-container video:hover {
+        -webkit-box-shadow: 0 0 15px #fffd;
+        box-shadow: 0 0 15px #fffd;
+        -webkit-box-reflect: below 10px
+          linear-gradient(transparent, transparent, #0007);
+      }
+
+      /* 中央文本样式 */
+      .drag-container p {
+        font-family: Serif;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%) rotateX(90deg);
+        transform: translate(-50%, -50%) rotateX(90deg);
+        color: #fff;
+      }
+
+      /* 地面效果（倒影） */
+      .ground {
+        width: 900px;
+        height: 900px;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%) rotateX(90deg);
+        transform: translate(-50%, -50%) rotateX(90deg);
+        background: -webkit-radial-gradient(
+          center center,
+          farthest-side,
+          #9993,
+          transparent
+        );
+      }
+
+      /* 音乐控制容器 */
+      .music-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      /* 正向旋转动画 */
+      @-webkit-keyframes spin {
+        from {
+          -webkit-transform: rotateY(0deg);
+          transform: rotateY(0deg);
+        }
+        to {
+          -webkit-transform: rotateY(360deg);
+          transform: rotateY(360deg);
+        }
+      }
+
+      @keyframes spin {
+        from {
+          -webkit-transform: rotateY(0deg);
+          transform: rotateY(0deg);
+        }
+        to {
+          -webkit-transform: rotateY(360deg);
+          transform: rotateY(360deg);
+        }
+      }
+      /* 反向旋转动画 */
+      @-webkit-keyframes spinRevert {
+        from {
+          -webkit-transform: rotateY(360deg);
+          transform: rotateY(360deg);
+        }
+        to {
+          -webkit-transform: rotateY(0deg);
+          transform: rotateY(0deg);
+        }
+      }
+      @keyframes spinRevert {
+        from {
+          -webkit-transform: rotateY(360deg);
+          transform: rotateY(360deg);
+        }
+        to {
+          -webkit-transform: rotateY(0deg);
+          transform: rotateY(0deg);
+        }
+      }
+
+

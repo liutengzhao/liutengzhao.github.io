@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>GameWorld</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="./img/枫叶.png" type="image/png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel='stylesheet' href='https://use.typekit.net/nlj0rki.css?v=1'>
+<link rel="stylesheet" href="./css/Acg.css">
+<link rel="stylesheet" href="./css/main.css">
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script><!-- 左下角旋转歌曲播放 -->
+<link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet"><!-- 玻璃图标 -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"><!-- C1.左侧隐藏式手机导航栏 -->
+<link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"><!-- C2.隐藏式右侧边栏菜单 -->
+
+
+
+
+
+
+<!-- 响应式相册展示 -->
+<link rel="stylesheet" href="./css/AcgGame-xx.css"><!-- 标题页样式 -->
+    <style>
+
+
+
+        .AcgGame-walkthrough-gallery-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .AcgGame-walkthrough-filter-tabs {
+            display: flex;
+            width: 100%;
+            margin-bottom: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .AcgGame-walkthrough-filter-tab {
+            flex: 1;
+            text-align: center;
+            padding: 15px 0;
+            background-color: #000;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            font-weight: bold;
+        }
+
+        .AcgGame-walkthrough-filter-tab:hover {
+            background-color: #4CAF50;
+        }
+
+        .AcgGame-walkthrough-filter-tab.active {
+            background-color: #E91E63;
+        }
+
+        .AcgGame-walkthrough-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            width: 100%;
+        }
+
+        .AcgGame-walkthrough-gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            aspect-ratio: 1/1;
+            transition: all 0.4s ease;
+            height: 250px;
+            width: 100%;
+        }
+
+        .AcgGame-walkthrough-gallery-item a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            text-decoration: none;
+        }
+
+        .AcgGame-walkthrough-gallery-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .AcgGame-walkthrough-gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
+            padding: 20px;
+            color: white;
+        }
+
+        .AcgGame-walkthrough-gallery-title {
+            margin-top: 10px;
+            margin-left: 5px;
+            font-size: 1.5rem;
+            position: relative;
+        }
+
+        .AcgGame-walkthrough-gallery-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 2px;
+            width: 1px;
+            height: 2px;
+            background-color: white;
+            transition: all 0.4s ease;
+        }
+
+        .AcgGame-walkthrough-gallery-subtitle {
+            position: absolute;
+            left: 100%;
+            opacity: 0;
+            transition: all 0.4s ease;
+            font-size: 1rem;
+            margin-top: 20px;
+            white-space: nowrap;
+            pointer-events: none;
+        }
+
+        .AcgGame-walkthrough-gallery-item:hover .AcgGame-walkthrough-gallery-image {
+            transform: scale(1.1)
+        }
+
+        .AcgGame-walkthrough-gallery-item:hover .AcgGame-walkthrough-gallery-overlay {
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        .AcgGame-walkthrough-gallery-item:hover .AcgGame-walkthrough-gallery-title::after {
+            width: calc(100% - 22px);
+        }
+
+        .AcgGame-walkthrough-gallery-item:hover .AcgGame-walkthrough-gallery-subtitle {
+            left: 25px;
+            opacity: 1;
+        }
+
+        @media (max-width: 600px) {
+            .AcgGame-walkthrough-gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .AcgGame-walkthrough-filter-tab {
+                padding: 10px 0;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* 图片 */
+        .AcgGame-walkthrough-photo-grid {
+            display: none;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .AcgGame-walkthrough-photo-grid-header {
+            margin-bottom: 15px;
+        }
+
+        .AcgGame-walkthrough-back-button {
+            padding: 10px 15px;
+            font-size: 1rem;
+            cursor: pointer;
+            background-color: #E91E63;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .AcgGame-walkthrough-back-button:hover {
+            background-color: #c21957;
+        }
+
+        .AcgGame-walkthrough-photo-grid-content {
+            display: grid;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .AcgGame-walkthrough-photo-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .AcgGame-walkthrough-photo-card img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        @media (min-width: 1000px) {
+            .AcgGame-walkthrough-photo-grid-content {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 1000px) {
+            .AcgGame-walkthrough-photo-grid-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .AcgGame-walkthrough-photo-grid-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+<header class="blizz"></header>
+<!-- 固定菜单栏 -->
+<div class="menu">
+  <img src="./img/枫叶.png" class="logo" alt="Logo">
+  <div class="menu-left">
+    <a href="./Acg.html"><i class="fas fa-home"></i>首页</a>
+    <a href="./AcgGame-recommend.html"><i class="fas fa-dragon"></i>游戏推荐</a>
+    <a href="./AcgGame-experience.html"><i class="fa-solid fa-rocket"></i>游戏人生</a>
+    <a href="./AcgGame-record.html" class="active"><i class="fa-solid fa-image"></i>图片记录</a>
+    <div class="nav-item">
+      <a href="/" onclick="return false;"><i class="fa-solid fa-folder"></i>其他<i class="fas fa-angle-down"></i></a>
+      <div class="submenu-wrapper">
+        <div class="submenu">
+          <a href="https://store.steampowered.com/" target="_blank">Steam</a>
+          <a href="https://store.epicgames.com/zh-CN" target="_blank">Epic Games</a>
+          <a href="https://www.4399.com/" target="_blank">4399</a>
+          <a href="https://gamepp.com/" target="_blank">GamePP硬件监控</a>
+        </div>
+      </div>
+    </div>
+    <!-- <a href="./AcgPrivacy/index.html" id="ym" style="display: none;">隐藏</a> -->
+  </div>
+  <div class="menu-right">
+    <a href="#" class="login-btn"><i class="fas fa-user-plus"></i>登录</a>
+  </div>
+
+
+<!-- 手机菜单栏 -->
+<div class="menumobile-left">
+  <!-- <a href="#" onclick="toggleMenu()"><i class="fas fa-bars"></i></a> -->
+  <a href="#" onclick="toggleMenu()" class="close-icon"><i class="fas fa-bars"></i></a>
+</div>
+<img src="./img/枫叶.png" class="menumobile-logo" alt="Logo">
+<div class="menumobile-right">
+  <a href="#" class="login-btn"><i class="fas fa-user"></i></a>
+</div>
+
+<!-- 抽屉菜单 -->
+<div class="drawer-menu" id="drawerMenu">
+  <div class="drawer-header">
+    <a href="#" onclick="toggleMenu()" class="close-icon"><i class="fas fa-times"></i></a>
+  </div>
+
+  <a href="./Acg.html" onclick="toggleMenu()"><i class="fas fa-home"></i>首页</a>
+  <a href="./AcgGame-recommend.html" onclick="toggleMenu()"><i class="fas fa-dragon"></i>游戏推荐</a>
+  <a href="./AcgGame-experience.html" onclick="toggleMenu()"><i class="fa-solid fa-rocket"></i>游戏人生</a>
+  <a href="./AcgGame-record.html" onclick="toggleMenu()" class="active"><i class="fa-solid fa-image"></i>图片记录</a>
+  <div class="dropdown">
+    <a href="/" onclick="return false;"><i class="fa-solid fa-folder"></i>其他&nbsp<i class="fas fa-angle-down"></i></a>
+    <ul class="dropdown-content">
+      <li><a href="https://store.steampowered.com/" target="_blank" onclick="toggleMenu()">Steam</a></li>
+      <li><a href="https://store.epicgames.com/zh-CN" target="_blank" onclick="toggleMenu()">Epic Games</a></li>
+      <li><a href="https://www.4399.com/" target="_blank" onclick="toggleMenu()">4399</a></li>
+      <li><a href="https://gamepp.com/" target="_blank" onclick="toggleMenu()">GamePP硬件监控</a></li>
+    </ul>
+  </div>
+  <!-- <a href="./AcgPrivacy/index.html" id="ym2" style="display: none;">隐藏</a> -->
+</div>
+
+</div>
+
+<!-- 登录对话框 -->
+   <!-- 对话框结构 -->
+   <div class="mask"></div>
+   <div class="dialog-box">
+       <button class="close-btn">×</button>
+       <form>
+           <div class="form-group">
+               <label>用户名</label>
+               <input type="text" required placeholder="请输入用户名">
+           </div>
+           <div class="form-group">
+               <label>密码</label>
+               <input type="password" required placeholder="请输入登陆密码">
+           </div>
+           <button type="submit" class="submit-btn">立即登录</button>
+       </form>
+   </div>
+<!-- 登陆后提示框 -->
+<!-- 提示框结构 -->
+<div class="notification" id="notification">
+  <div class="notification-content">
+      <span id="notification-message"></span>
+      <button class="close-notification" onclick="closeNotification()">×</button>
+  </div>
+</div>
+
+
+
+<!-- 左下角旋转歌曲播放 -->
+<div class="song" id="SongList">
+
+    <input type="radio" name="music" id="item-1" checked>
+    <input type="radio" name="music" id="item-2">
+    <input type="radio" name="music" id="item-3">
+  <div class="songcards">
+    <label class="songcard" for="item-1" id="song-1">
+      <img src="http://img.blog.1207.top/img/202507021739773.avif">
+    </label>
+    <label class="songcard" for="item-2" id="song-2">
+      <img src="http://p1.music.126.net/TAiliOjM10DlKiL56fPIMw==/109951163737497396.jpg?param=130y130">
+    </label>
+    <label class="songcard" for="item-3" id="song-3">
+      <img src="http://img.blog.1207.top/img/202507021749336.avif">
+    </label>
+  </div>
+  <div id="iframe-container">
+    <iframe id="music-iframe" frameborder="no" border="0" marginwidth="0" marginheight="0" width=310 height=86 src="http://music.163.com/outchain/player?type=2&id=1406649619&auto=1&height=66"></iframe>
+    <button class="song-button" id="prev">⏮</button>
+    <button class="song-button" id="next">⏭</button>
+  </div>
+</div>
+
+
+
+<!-- 右下角评论留言 -->
+<div id="comment-container" class="TalkList"></div>
+
+
+
+<!-- A2.复选框选中后全屏覆盖界面 -->
+<input type="checkbox" id="fuxuankuang">
+<!-- <label class="fugai-btn" for="fuxuankuang">
+    <i class="fa fa-bars" aria-hidden="true"></i>
+</label> -->
+     <!-- 覆盖界面 -->
+<div class="fugai-jiemian"> 
+ <div class="parallax-container" id="parallaxContainer">
+  <!-- 背景层 -->
+  <div class="parallax-layer background-layer"></div>
+  <!-- 中景层 -->
+  <div class="parallax-layer midground-layer dynamic-depth" id="midgroundText">
+<!--     <h1>登陆注册</h1>
+    <p>这是一个具有景深和视差滚动效果的页面。</p> -->
+  </div>
+
+  <!-- 前景层 -->
+  <div class="parallax-layer foreground-layer dynamic-depth" id="foregroundCard">
+   <!-- 登录 -->
+    <div class="shell">
+        <h2 class="title">Login</h2>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <input type="submit" value="Login" id="loginBtn">
+        <div class="footer">
+            <div class="Remember">
+                <input type="checkbox" id="rememberMe">
+                <label for="rememberMe">记住我</label>
+            </div>
+            <button id="Password">去注册</button>
+        </div>
+    </div>
+
+  </div>
+ </div>
+</div>
+
+
+
+<!-- C2.隐藏式右侧边栏菜单 -->
+<div class="right-yincangcaidan">
+    <!-- --lqj是自定义属性，通过var函数可调用 -->
+    <li style="--lqj:20%;">
+        <a href="#" title="滚动至顶部" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+            <i class="fa-solid fa-arrow-up" aria-hidden="false"></i>
+        </a>
+    </li>
+    <li style="--lqj:30%;">
+        <a href="#" id="toggleButton" title="功能扩展">
+            <i class="fa fa-th-large" aria-hidden="true"></i>
+        </a>
+    </li>
+    <li style="--lqj:40%;">
+        <a href="#" title="关闭歌曲列表" onclick="toggleSongList()">
+            <i class="fa-solid fa-bell-slash" aria-hidden="true"></i>
+        </a>
+    </li>
+    <li style="--lqj:50%;">
+        <a href="#" title="关闭评论留言" onclick="toggleTalkList()">
+            <i class="fa-solid fa-comment-slash" aria-hidden="true"></i>
+        </a>
+    </li>
+    <li style="--lqj:60%;">
+        <a href="#" title="滚动至底部" onclick="window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'})">
+            <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
+        </a>
+    </li>
+    <!-- <li style="--lqj:70%;">
+        <a href="https://1207.top/" title="我的博客">
+            <i class="fa-solid fa-folder" aria-hidden="true"></i>
+        </a>
+    </li> -->
+    <div class="right-yincangcaidan-top"></div>
+    <div class="right-yincangcaidan-middle"></div>
+    <div class="right-yincangcaidan-bottom"></div>
+</div>
+
+
+
+
+<!-- C1.左侧隐藏式手机导航栏 -->
+    <!-- 手机导航栏 -->
+      <section class="shouji-daohang">
+      <header>
+        <div class="shoujidaohang-backdrop"></div><!-- 手机导航栏上方颜色 -->
+        <button class="shoujidaohang-back">
+          <svg class="icon" viewBox="0 0 172 172">
+            <path d="M114.55469,22.87734c-1.48951,0.04438 -2.90324,0.6669 -3.94167,1.73568l-57.33333,57.33333c-2.23811,2.23904 -2.23811,5.86825 0,8.10729l57.33333,57.33333c1.43802,1.49778 3.5734,2.10113 5.5826,1.57735c2.0092,-0.52378 3.57826,-2.09284 4.10204,-4.10204c0.52378,-2.0092 -0.07957,-4.14458 -1.57735,-5.5826l-53.27969,-53.27969l53.27969,-53.27969c1.69569,-1.64828 2.20555,-4.16851 1.28389,-6.3463c-0.92166,-2.17779 -3.08576,-3.56638 -5.44951,-3.49667z"></path>
+          </svg>
+        </button>
+  <!--       <div class="text">
+          <h1>Full body</h1>
+          <p>Activate every muscle group to get the results you've always wanted.</p>
+          <div class="labels"><span class="label">Easy</span><span class="label">12 min</span></div>
+        </div> -->
+        <!-- 苹果灵动岛 -->
+        <div class="pgnavigation" style="margin-top: 10px;">
+          <span style="--i: 0; --x: -1; --y: 0"><ion-icon name="construct-outline"></ion-icon>
+          </span>
+          <span style="--i: 1; --x: 1; --y: 0"><ion-icon name="game-controller-outline"></ion-icon></span>
+          <span style="--i: 2; --x: 0; --y: -1"><ion-icon name="megaphone-outline"></ion-icon></span>
+          <span style="--i: 3; --x: 0; --y: 1"><ion-icon name="person-circle-outline"></ion-icon></span>
+          <span style="--i: 4; --x: 1; --y: 1"><ion-icon name="videocam-outline"></ion-icon></span>
+          <span style="--i: 5; --x: -1; --y: -1"><ion-icon name="trash-outline"></ion-icon></span>
+          <span style="--i: 6; --x: 0; --y: 0"><ion-icon name="stats-chart-outline"></ion-icon></span>
+          <span style="--i: 7; --x: -1; --y: 1"><ion-icon name="save-outline"></ion-icon></span>
+          <span style="--i: 8; --x: 1; --y: -1"><ion-icon name="cog-outline"></ion-icon></span>
+        </div>
+        
+        <button class="shoujidaohang-playbut">
+          <svg class="icon" viewBox="0 0 172 172">
+            <path d="M129.78117,74.07467l-64.5,-43c-2.39367,-1.59817 -5.16717,-2.408 -7.94783,-2.408c-2.322,0 -4.644,0.559 -6.76533,1.6985c-4.65833,2.494 -7.568,7.34583 -7.568,12.63483v86c0,5.289 2.90967,10.14083 7.568,12.63483c2.12133,1.1395 4.44333,1.6985 6.76533,1.6985c2.78067,0 5.55417,-0.80983 7.955,-2.408l64.5,-43c3.98467,-2.65883 6.37833,-7.13083 6.37833,-11.92533c0,-4.7945 -2.39367,-9.2665 -6.3855,-11.92533z"></path>
+          </svg>
+        </button>
+      </header>
+      <section class="shoujidaohang-exercises">
+        <h2>Daily Health</h2>
+        <ul>
+          <li><a href="#"><i></i><span>Strength</span><i class="arrow"></i></a></li>
+          <li><a href="#"><i></i><span>Cardiovascular</span><i class="arrow"></i></a></li>
+          <li><a href="#"><i></i><span>Games</span><i class="arrow"></i></a></li>
+          <li><a href="#"><i></i><span>Cross-training</span><i class="arrow"></i></a></li>
+          <li><a href="#"><i></i><span>Nutrition</span><i class="arrow"></i></a></li>
+          <li><a href="#"><i></i><span>Hydration</span><i class="arrow"></i></a></li>
+        </ul>
+      </section>
+    </section>
+  
+
+
+
+
+
+<!-- 内容区域 -->
+<!-- .maincontent类为，从网页顶头开始写的内容区域样式，用在主页上 -->
+<!-- .maincontent2类为，不从头开始，不遮挡城堡的内容区域样式，用在其他网页 -->
+<div class="maincontent">
+
+  
+<!-- 响应式相册展示 -->
+<div class="AcgGame-xx"><!-- 相当于独立页面里的body，原始样式可以直接再在内嵌css里添加一下AcgGame-xx样式 -->
+    <div class="AcgGame-xx-banner">
+    <div class="AcgGame-xx-banner-text">
+        <h1 class="AcgGame-xx-main-title">图片记录</h1>
+        <div class="AcgGame-xx-sub-titles">
+            <h2>游戏足迹留影</h2>
+        </div>
+    </div>
+    </div>
+
+
+
+
+    <div class="AcgGame-walkthrough-gallery-container">
+        <div class="AcgGame-walkthrough-filter-tabs">
+            <div class="AcgGame-walkthrough-filter-tab active" data-category="all">全部</div>
+            <div class="AcgGame-walkthrough-filter-tab" data-category="nature">休闲</div>
+            <div class="AcgGame-walkthrough-filter-tab" data-category="city">动作</div>
+            <div class="AcgGame-walkthrough-filter-tab" data-category="people">其他</div>
+            <div class="AcgGame-walkthrough-filter-tab" data-category="food">童年</div>
+        </div>
+
+        <div class="AcgGame-walkthrough-gallery" id="gallery">
+            <!-- 自然类图片 -->
+            <div class="AcgGame-walkthrough-gallery-item" data-category="nature" data-id="gta">
+                <a href="#">
+                    <img src="http://img.blog.1207.top/img/202503290906331.jpg"
+                         class="AcgGame-walkthrough-gallery-image">
+                    <div class="AcgGame-walkthrough-gallery-overlay">
+                        <h3 class="AcgGame-walkthrough-gallery-title">道德与法治</h3>
+                        <p class="AcgGame-walkthrough-gallery-subtitle">道德与法治</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="AcgGame-walkthrough-gallery-item" data-category="nature" data-id="pal">
+                <a href="#">
+                    <img src="http://img.blog.1207.top/img/202503290906991.jpg"
+                         class="AcgGame-walkthrough-gallery-image">
+                    <div class="AcgGame-walkthrough-gallery-overlay">
+                        <h3 class="AcgGame-walkthrough-gallery-title">幻兽帕鲁</h3>
+                        <p class="AcgGame-walkthrough-gallery-subtitle">幻兽帕鲁</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- 城市类图片 -->
+            <div class="AcgGame-walkthrough-gallery-item" data-category="city" data-id="EldenRing">
+                <a href="#">
+                    <img src="http://img.blog.1207.top/img/202503290907108.jpg"
+                         class="AcgGame-walkthrough-gallery-image">
+                    <div class="AcgGame-walkthrough-gallery-overlay">
+                        <h3 class="AcgGame-walkthrough-gallery-title">艾尔登法环</h3>
+                        <p class="AcgGame-walkthrough-gallery-subtitle">艾尔登法环</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- 人物类图片 -->
+            <div class="AcgGame-walkthrough-gallery-item" data-category="people" data-id="mmqlx">
+                <a href="#">
+                    <img src="http://img.blog.1207.top/img/202503290915857.png"
+                         class="AcgGame-walkthrough-gallery-image">
+                    <div class="AcgGame-walkthrough-gallery-overlay">
+                        <h3 class="AcgGame-walkthrough-gallery-title">明末千里行</h3>
+                        <p class="AcgGame-walkthrough-gallery-subtitle">明末千里行</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- 美食类图片 -->
+            <div class="AcgGame-walkthrough-gallery-item" data-category="food" data-id="sjsj">
+                <a href="#">
+                    <img src="http://img.blog.1207.top/img/202507021707037.png"
+                         class="AcgGame-walkthrough-gallery-image">
+                    <div class="AcgGame-walkthrough-gallery-overlay">
+                        <h3 class="AcgGame-walkthrough-gallery-title">神将世界</h3>
+                        <p class="AcgGame-walkthrough-gallery-subtitle">神将世界</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 新增：用于展示具体相册图片的响应式网格 -->
+    <div class="AcgGame-walkthrough-photo-grid" id="photoGrid" style="display: none;">
+        <div class="AcgGame-walkthrough-photo-grid-header">
+            <button class="AcgGame-walkthrough-back-button">← 返回相册</button>
+        </div>
+        <div class="AcgGame-walkthrough-photo-grid-content" id="photoGridContent"></div>
+    </div>
+</div>
+
+
+
+
+<footer>
+    <!-- <div class="footertubiao"  id="games-section-4">
+        <a href="#" class="bolitubiao"><i class="fa fa-qq" aria-hidden="true"></i></a>
+        <div class="bolitubiao"><i class="fa fa-weixin" aria-hidden="true"></i></div>
+    </div>
+    <p>© 2024 Game Universe. All rights reserved.</p> -->
+    
+    <!-- <div class="footertubiao"  id="games-section-4">
+        <div class="bolitubiao"><img src="http://img.blog.1207.top/img/202603302218235.jpeg" width="200" height="200"></div>
+        <div class="bolitubiao"><img src="http://img.blog.1207.top/img/202603302218189.jpeg" width="200" height="200"></div>
+        <div class="bolitubiao"><img src="http://img.blog.1207.top/img/202603302218218.jpeg" width="200" height="200"></div>
+        <div class="bolitubiao"><img src="http://img.blog.1207.top/img/202603302218721.jpeg" width="200" height="200"></div>
+        <div class="bolitubiao"><img src="http://img.blog.1207.top/img/202603302218176.jpeg" width="200" height="200"></div>
+    </div> -->
+
+    <!-- <div class="footertubiao"  id="games-section-4">
+        <div class="bolitubiao"><img src="http://img.blog.1207.top/img/202603302218235.jpeg" width="100" height="100"></div>
+        <div class="bolitubiao"><img src="http://img.blog.1207.top/img/202603302218189.jpeg" width="100" height="100"></div>
+        <div class="bolitubiao"><img src="http://img.blog.1207.top/img/202603302218218.jpeg" width="100" height="100"></div>
+        <div class="bolitubiao"><img src="http://img.blog.1207.top/img/202603302218721.jpeg" width="100" height="100"></div>
+        <div class="bolitubiao"><img src="http://img.blog.1207.top/img/202603302218176.jpeg" width="100" height="100"></div>
+    </div> -->
+    <!-- <p>© 2024 Game Universe. All rights reserved.</p> -->
+    
+</footer>
+
+
+
+</div>
+<script  src="./js/verify.js"></script>
+<script  src="./js/Acg.js"></script>
+<script  src="./js/Login.js"></script>
+<script  src="./js/main.js"></script>
+<script  src="./js/encryption.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script><!-- 使用密码哈希必须有这个！！！！！！！ 什么页面用什么页面引入一下-->
+
+<!-- C1.左侧隐藏式手机导航栏 -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+<!-- 苹果灵动岛 -->
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+
+
+<!-- 响应式相册展示 -->
+ <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const tabs = document.querySelectorAll('.AcgGame-walkthrough-filter-tab');
+            const galleryItems = document.querySelectorAll('.AcgGame-walkthrough-gallery-item');
+
+            // ✅ 点击顶部标签筛选
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function () {
+                    tabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+
+                    const category = this.getAttribute('data-category');
+                    galleryItems.forEach(item => {
+                        if (category === 'all' || item.getAttribute('data-category') === category) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // ✅ 点击相册卡片 → 展示该分类所有图片
+            const galleryContainer = document.querySelector('.AcgGame-walkthrough-gallery-container');
+            const photoGrid = document.querySelector('.AcgGame-walkthrough-photo-grid');
+            const photoGridContent = document.getElementById('photoGridContent');
+            const backButton = document.querySelector('.AcgGame-walkthrough-back-button');
+
+            // 分类图片数据
+            const categoryImages = {
+                gta: [
+                    { src: "http://img.blog.1207.top/img/202503290905282.webp" },
+                    { src: "http://img.blog.1207.top/img/202503290902182.jpg" },
+                    { src: "http://img.blog.1207.top/img/202503290905216.jpg" },
+                    { src: "http://img.blog.1207.top/img/202503290905929.jpg" },
+                    { src: "http://img.blog.1207.top/img/202503290905648.jpg" },
+                    { src: "http://img.blog.1207.top/img/202503290906331.jpg" },
+                ],
+                pal: [
+                    { src: "http://img.blog.1207.top/img/202503290906941.jpeg" },
+                    { src: "http://img.blog.1207.top/img/202503290906991.jpg" },
+                ],
+                EldenRing: [
+                    { src: "http://img.blog.1207.top/img/202503290907938.jpg" },
+                    { src: "http://img.blog.1207.top/img/202503290907108.jpg" },
+                ],
+                mmqlx: [
+                    { src: "http://img.blog.1207.top/img/202503290913787.png" },
+                    { src: "http://img.blog.1207.top/img/202503290913662.png" },
+                    { src: "http://img.blog.1207.top/img/202503290913085.png" },
+                    { src: "http://img.blog.1207.top/img/202503290914454.png" },
+                    { src: "http://img.blog.1207.top/img/202503290914553.png" },
+                    { src: "http://img.blog.1207.top/img/202503290914292.png" },
+                    { src: "http://img.blog.1207.top/img/202503290914062.png" },
+                    { src: "http://img.blog.1207.top/img/202503290914328.png" },
+                    { src: "http://img.blog.1207.top/img/202503290915616.png" },
+                    { src: "http://img.blog.1207.top/img/202503290915318.png" },
+                    { src: "http://img.blog.1207.top/img/202503290915857.png" },
+                ],
+                sjsj: [
+                    { src: "http://img.blog.1207.top/img/202507021707037.png" },
+                    
+                ],
+            };
+
+            // ✅ 点击相册卡片 → 展示该分类所有图片
+            galleryItems.forEach(item => {
+                item.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const category = this.getAttribute('data-id');
+                    const images = categoryImages[category];
+
+                    if (!images || images.length === 0) return;
+
+                    // 隐藏首页，显示详情页
+                    galleryContainer.style.display = 'none';
+                    photoGrid.style.display = 'block';
+
+                    // 清空并重新渲染
+                    photoGridContent.innerHTML = '';
+                    images.forEach(data => {
+                        const card = document.createElement('div');
+                        card.className = 'AcgGame-walkthrough-photo-card';
+                        card.innerHTML = `
+                            <img src="${data.src}" alt="" class="AcgGame-walkthrough-gallery-image">
+                        `;
+                        photoGridContent.appendChild(card);
+                    });
+                });
+            });
+
+            // ✅ 返回按钮
+            backButton.addEventListener('click', () => {
+                photoGrid.style.display = 'none';
+                galleryContainer.style.display = 'block';
+            });
+        });
+    </script>
+</body>
+</html>

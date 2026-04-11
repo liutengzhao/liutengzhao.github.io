@@ -1,0 +1,1 @@
+let layer=document['querySelector']('.layer');window['addEventListener']('scroll',function(){var _0x4a8bb5=window['scrollY'];layer['style']['left']=0x2*_0x4a8bb5+'px';});
